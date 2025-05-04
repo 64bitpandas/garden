@@ -1,0 +1,16 @@
+#calendar-container .month {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-right: 5px;
+}
+#calendar-container .year {
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+#calendar-container tr th {
+    letter-spacing: 0.05em;
+    text-transform: lowercase;
+}

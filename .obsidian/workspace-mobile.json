@@ -1,0 +1,267 @@
+{
+  "main": {
+    "id": "15695c6ebaad9cdc",
+    "type": "split",
+    "children": [
+      {
+        "id": "89ca29b9c6609c9d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "95bccc587e1aa43b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "daily/2025-02-16.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2025-02-16"
+            }
+          },
+          {
+            "id": "3f6f21da47a8ad46",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Book numbers.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Book numbers"
+            }
+          },
+          {
+            "id": "3ce1a8a5ce32fd05",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "garden/balatro naneinf.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "balatro naneinf"
+            }
+          },
+          {
+            "id": "8c9827f01a0c1fa7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "b640c86d9d0d1d55",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "garden/balatro naneinf.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "balatro naneinf"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ec96c63f2f06d839",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "9b19b60394a83785",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical",
+            "autoReveal": false
+          },
+          "icon": "lucide-folder-closed",
+          "title": "Files"
+        }
+      },
+      {
+        "id": "4b2d2aa55cdca912",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-search",
+          "title": "Search"
+        }
+      },
+      {
+        "id": "15df0fc57c2f4b4c",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          },
+          "icon": "lucide-tags",
+          "title": "Tags"
+        }
+      },
+      {
+        "id": "5e001a75c1145eb5",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {},
+          "icon": "lucide-bookmark",
+          "title": "Bookmarks"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "facc5d172e1eb76e",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "97f029298ef5fd9c",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "daily/2025-01-15.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-coming-in",
+          "title": "Backlinks"
+        }
+      },
+      {
+        "id": "7c88c5fdadb20483",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "0. Home.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-going-out",
+          "title": "Outgoing links"
+        }
+      },
+      {
+        "id": "8b9e87e4eced8941",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "daily/2024-12-25.md"
+          },
+          "icon": "lucide-list",
+          "title": "Outline"
+        }
+      },
+      {
+        "id": "42921779c7414468",
+        "type": "leaf",
+        "state": {
+          "type": "calendar",
+          "state": {},
+          "icon": "lucide-file",
+          "title": "Plugin no longer active"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-git:Open Git source control": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "b640c86d9d0d1d55",
+  "lastOpenFiles": [
+    "daily/2025-04-07.md",
+    "garden/balatro naneinf.md",
+    "Untitled.md",
+    "garden/bluesky.md",
+    "daily/2025-04-06.md",
+    "Book numbers.md",
+    "daily/2025-02-16.md",
+    "daily/2025-02-12.md",
+    "Pasted image 20250212015843.png",
+    "Untitled_Artwork 2.png",
+    "daily/2025-01-15.md",
+    "Pasted image 20250115020218.png",
+    "Pasted image 20250115021356.png",
+    "s2/s2w3/how google works (part 1).md",
+    "Pasted image 20250115004533.png",
+    "Untitled_Artwork 1.png",
+    "Untitled_Artwork.png",
+    "daily/2025-01-01.md",
+    "img/endcard.png",
+    "garden/a framework for the internet.md",
+    "98517B0D-68F7-4924-AACF-193F1FC09908_1_201_a.heic",
+    "daily/2024-12-31.md",
+    "IMG_1593.jpeg",
+    "Pasted image 20250101045207.png",
+    "garden/2025 goals.md",
+    "s2/s2e1/s2e1 the end of season one.md",
+    "daily/2024-12-30.md",
+    "daily/2024-12-25.md",
+    "daily/2024-11-27.md",
+    "garden/plants.md",
+    "daily/2024-11-09.md",
+    "0. Home.md",
+    "garden/interact application.md",
+    "garden/garden ideas.md",
+    "garden/rabbitholes.md",
+    "newsletter/_ideas.md",
+    "garden/things i want to make.md",
+    "inventory/inventory.numbers",
+    "inventory",
+    "img/turtlenet.ico",
+    "meta/scripts/sh.js",
+    "meta/scripts",
+    "Untitled.canvas",
+    "Lists"
+  ]
+}
