@@ -2,7 +2,6 @@
   "better-word-count",
   "dataview",
   "obsidian-icon-folder",
-  "obsidian-git",
   "calendar",
   "obsidian-minimal-settings",
   "obsidian-banners",
@@ -14,5 +13,6 @@
   "convert-url-to-iframe",
   "copy-image",
   "obsidian-tasks-plugin",
-  "novel-word-count"
+  "novel-word-count",
+  "obsidian-shellcommands"
 ]
