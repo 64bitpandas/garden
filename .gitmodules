@@ -1,0 +1,3 @@
+[submodule "content/vsh"]
+	path = content/vsh
+	url = https://github.com/64bitpandas/vsh
