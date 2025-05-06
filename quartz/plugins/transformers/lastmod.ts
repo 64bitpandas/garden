@@ -2,7 +2,6 @@ import fs from "fs"
 import { Repository } from "@napi-rs/simple-git"
 import { QuartzTransformerPlugin } from "../types"
 import chalk from "chalk"
-import path from "path"
 
 export interface Options {
   priority: ("frontmatter" | "git" | "filesystem")[]
@@ -65,9 +64,14 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
                 published ||= file.data.frontmatter.published as MaybeDate
               } else if (source === "git" && repo) {
                 try {
-                  const relativePath = path.relative(repositoryWorkdir, fullFp)
-                  modified ||= await repo.getFileLatestModifiedDateAsync(relativePath)
-                } catch {
+                  // Try to discover the submodule repository
+                  const submoduleRepo = Repository.discover(ctx.argv.directory)
+                  // const submoduleWorkdir = submoduleRepo.workdir()! // assume repo is non-bare
+                  // Get path relative to the submodule root
+                  const submoduleRelativePath = fullFp.replace(/^.*?content\/vsh\//, '')
+                  modified ||= await submoduleRepo.getFileLatestModifiedDateAsync(submoduleRelativePath)
+                } catch (e) {
+                  console.log(e)
                   console.log(
                     chalk.yellow(
                       `\nWarning: ${file.data.filePath!} isn't yet tracked by git, dates will be inaccurate`,
@@ -83,7 +87,7 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
               published: coerceDate(fp, published),
             }
           }
-        },
+        }
       ]
     },
   }

@@ -181,13 +181,13 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-shellcommands:Shell commands: Custom variables": false,
       "daily-notes:Open today's daily note": false,
       "switcher:Open quick switcher": true,
       "graph:Open graph view": false,
       "canvas:Create new canvas": true,
       "command-palette:Open command palette": true,
       "templates:Insert template": true,
-      "obsidian-git:Open Git source control": false,
       "templater-obsidian:Templater": false
     }
   },
@@ -195,6 +195,7 @@
   "lastOpenFiles": [
     "content/vsh/daily/2025-05-03.md",
     "content/vsh/projects/v7/garden/Garden Day.md",
+    "Pasted image 20250503233822.png",
     "content/vsh/Pasted image 20250503152929.png",
     "content/vsh/Pasted image 20250503162153.png",
     "content/vsh/daily/2025-04-18 2.md",
@@ -212,7 +213,6 @@
     "content/vsh/garden/Obsidian Setup 2.md",
     "content/vsh/Pasted image 20250503184055.png",
     "content/vsh/Pasted image 20250503184550.png",
-    "content/vsh/Pasted image 20250503163417.png",
     "content/vsh/garden/technological evolution is now faster than cultural evolution 2.md",
     "content/vsh/garden/the backburner 2.md",
     "content/vsh/garden/Self-hosting goatcounter with Docker Compose 2.md",
@@ -238,7 +238,6 @@
     "content/vsh/daily/2025-03-04 2.md",
     "content/vsh/s2/s2w8 2",
     "content/vsh/peer reviewed/intro 2.md",
-    "content/vsh/daily/2025-01-28 2.md",
     "Untitled.canvas"
   ]
 }
