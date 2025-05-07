@@ -5,6 +5,7 @@ import fs from "fs"
 import { glob } from "../../util/glob"
 import { Argv } from "../../util/ctx"
 import { QuartzConfig } from "../../cfg"
+import chalk from "chalk"
 
 const filesToCopy = async (argv: Argv, cfg: QuartzConfig) => {
   // glob all non MD files in content folder and copy it over
@@ -44,7 +45,11 @@ export const Assets: QuartzEmitterPlugin = () => {
         } else if (changeEvent.type === "delete") {
           const name = slugifyFilePath(changeEvent.path)
           const dest = joinSegments(ctx.argv.output, name) as FilePath
-          await fs.promises.unlink(dest)
+          try {
+             await fs.promises.unlink(dest)
+          } catch(err) {
+            console.log(chalk.yellow(`Failed to delete file ${dest}: ${err}`))
+          }
         }
       }
     },
