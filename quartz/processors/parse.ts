@@ -89,7 +89,16 @@ export function createFileParser(ctx: BuildCtx, fps: FilePath[]) {
     for (const fp of fps) {
       try {
         const perf = new PerfTimer()
-        const file = await read(fp)
+        // Wrap file reading in try/catch to handle missing files
+        let file
+        try {
+          file = await read(fp)
+        } catch (err) {
+          if (argv.verbose) {
+            console.log(chalk.yellow(`[warning] Skipping file that doesn't exist: ${fp}`))
+          }
+          continue
+        }
 
         // strip leading and trailing whitespace
         file.value = file.value.toString().trim()
@@ -112,7 +121,12 @@ export function createFileParser(ctx: BuildCtx, fps: FilePath[]) {
           console.log(`[markdown] ${fp} -> ${file.data.slug} (${perf.timeSince()})`)
         }
       } catch (err) {
-        trace(`\nFailed to process markdown \`${fp}\``, err as Error)
+        // Don't crash, just log the error and continue
+        if (argv.verbose) {
+          trace(`\nFailed to process markdown \`${fp}\``, err as Error)
+        } else {
+          console.log(chalk.yellow(`[warning] Failed to process markdown \`${fp}\`: ${(err as Error).message}`))
+        }
       }
     }
 

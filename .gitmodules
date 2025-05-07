@@ -1,3 +1,6 @@
 [submodule "content/vsh"]
 	path = content/vsh
 	url = https://github.com/64bitpandas/vsh
+[submodule "static/fonts"]
+	path = static/fonts
+	url = https://github.com/64bitpandas/fonts
