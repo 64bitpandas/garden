@@ -20,7 +20,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "garden.bencuan.me",
-    ignorePatterns: ["private", "meta/templates", ".obsidian", "daily", "blog"],
+    ignorePatterns: ["private", "meta/templates", ".obsidian", "daily", "blog", ...(process.env.GARDEN_DEV ? [] : ["quartz docs"])],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "local",
@@ -32,15 +32,15 @@ const config: QuartzConfig = {
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#fff23688",
+          light: "#faf4ed", // background color
+          lightgray: "#dfdad9", // search bar background, <hr/> default color, explorer alignment rules, graph edges, code background
+          gray: "#9893a5", // subheading, graph forward links
+          darkgray: "#575279", // default text color and icons
+          dark: "#232634", // explorer subheadings, titles, link icons, code text
+          secondary: "#286983", // graph current page, explorer main headings, links
+          tertiary: "#e0def4", // text highlight/hover, graph backlinks, current explorer page
+          highlight: "#56949f", // internal link background, highlighted text, code highlighting
+          textHighlight: "yellow", // making this ugly so i can figure out what it does
         },
         darkMode: {
           light: "#161618",
@@ -64,8 +64,8 @@ const config: QuartzConfig = {
       }),
       Plugin.SyntaxHighlighting({
         theme: {
-          light: "github-light",
-          dark: "github-dark",
+          light: "rose-pine-dawn",
+          dark: "rose-pine-moon",
         },
         keepBackground: false,
       }),
@@ -91,8 +91,8 @@ const config: QuartzConfig = {
       Plugin.Static(),
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
-      // Comment out CustomOgImages to speed up build time
-      Plugin.CustomOgImages(),
+      // CustomOgImages is slow; set GARDEN_DEV=1 to disable
+      ...(process.env.GARDEN_DEV ? [] : [Plugin.CustomOgImages()]),
     ],
   },
 }
