@@ -1,26 +1,27 @@
 @use "./base.scss";
 @use "colors";
+@use 'fonts';
 
 // Custom scrollbar
 * {
-    &::-webkit-scrollbar {
-      width: 8px;
-      height: 6px; // thinner horizontal scrollbar
-    
-      &-thumb {
-        background: var(--rose);
-        border-radius: 3px;
-      }
-    
-      &-track {
-        background-color: var(--highlight-low);
-      }
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 6px; // thinner horizontal scrollbar
+
+    &-thumb {
+      background: var(--rose);
+      border-radius: 3px;
     }
+
+    &-track {
+      background-color: var(--highlight-low);
+    }
+  }
 }
 
 // code block border
 pre {
-    border: 1px solid var(--rose);
+  border: 1px solid var(--rose);
 }
 
 .clipboard-button {
@@ -49,12 +50,30 @@ pre {
     background-color: var(--rose);
 
     > svg {
-        fill: var(--highlight-low);
-        color: var(--highlight-low);
+      fill: var(--highlight-low);
+      color: var(--highlight-low);
     }
   }
 
   &:focus {
     outline: 0;
   }
+}
+
+.emoji-svg {
+  height: 1.2em;
+  width: 1.2em;
+  vertical-align: -0.2em;
+  display: inline-block;
+  margin: 0;
+}
+.custom-emoji {
+  height: 1.5em;
+  width:  1.5em;
+  vertical-align: -0.3em;
+  margin: 0;
+}
+
+.stage-header {
+  font-family: "The Cats Whiskers", serif;
 }
