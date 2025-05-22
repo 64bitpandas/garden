@@ -2,6 +2,7 @@ import fs from "fs"
 import { Repository } from "@napi-rs/simple-git"
 import { QuartzTransformerPlugin } from "../types"
 import chalk from "chalk"
+import path from "path"
 
 export interface Options {
   priority: ("frontmatter" | "git" | "filesystem")[]
@@ -59,19 +60,21 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
                 created ||= st.birthtimeMs
                 modified ||= st.mtimeMs
               } else if (source === "frontmatter" && file.data.frontmatter) {
-                created ||= file.data.frontmatter.created as MaybeDate
+                created ||= file.data.frontmatter.date as MaybeDate
                 modified ||= file.data.frontmatter.modified as MaybeDate
                 published ||= file.data.frontmatter.published as MaybeDate
               } else if (source === "git" && repo) {
                 try {
-                  // Try to discover the submodule repository
-                  const submoduleRepo = Repository.discover(ctx.argv.directory)
-                  // const submoduleWorkdir = submoduleRepo.workdir()! // assume repo is non-bare
-                  // Get path relative to the submodule root
-                  const submoduleRelativePath = fullFp.replace(/^.*?content\/vsh\//, '')
-                  modified ||= await submoduleRepo.getFileLatestModifiedDateAsync(submoduleRelativePath)
+                    // try to get dates from the submodule
+                    const submodulePath = "content/vsh"
+                    if (fullFp.includes(submodulePath)) {
+                      // Try to discover the submodule repository
+                      const submoduleRepo = Repository.discover(path.join(ctx.argv.directory))
+                      // Get path relative to the submodule root
+                      const submoduleRelativePath = fullFp.replace(/^.*?content\/vsh\//, '')
+                      modified ||= await submoduleRepo.getFileLatestModifiedDateAsync(submoduleRelativePath)
+                    }
                 } catch (e) {
-                  console.log(e)
                   console.log(
                     chalk.yellow(
                       `\nWarning: ${file.data.filePath!} isn't yet tracked by git, dates will be inaccurate`,
@@ -80,7 +83,6 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
                 }
               }
             }
-
             file.data.dates = {
               created: coerceDate(fp, created),
               modified: coerceDate(fp, modified),

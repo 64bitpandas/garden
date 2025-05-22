@@ -4,6 +4,7 @@ import { classNames } from "../util/lang"
 import { JSX } from "preact"
 import style from "./styles/contentMeta.scss"
 import { getDate } from "./Date"
+import chalk from "chalk"
 
 interface ContentMetaOptions {
   /**
@@ -58,23 +59,20 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
 
 
       // use the initial creation date. this defaults to the `date` frontmatter, and if not found, the git commit history
-      if (fileData.dates?.created) {
-        let createdDate = getDate(cfg, fileData);
-        if (createdDate) {
-          console.log(createdDate);
-        } else {
-          createdDate = fileData.dates.created;
-        }
+      const createdDate = fileData.dates?.created || getDate(cfg, fileData)
+      if (createdDate) {
         segments.push(
           <span>created {createdDate.toISOString().split('T')[0]}</span>
         )
+      } else {
+        console.log(chalk.yellow(`No created date found for ${fileData.slug}`))
       }
 
       // Add last-modified date if exists
       if (fileData.dates?.modified) {
         const modifiedDate = fileData.dates.modified
         segments.push(
-          <span>, last edited {modifiedDate.toISOString().split('T')[0]}</span>
+          <span>, edited {modifiedDate.toISOString().split('T')[0]}</span>
         )
       }
 
