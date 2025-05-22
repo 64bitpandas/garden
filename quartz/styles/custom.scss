@@ -74,6 +74,34 @@ pre {
   margin: 0;
 }
 
-.stage-header {
-  font-family: "The Cats Whiskers", serif;
+.graph {
+  width: 100%;
+  min-width: 0; // Prevents flex item from overflowing
+  
+  & > .graph-outer {
+    width: 100%;
+  }
+}
+
+.backlinks {
+  width: 100%;
+  min-width: 0; // Prevents flex item from overflowing
+}
+
+// Internal link styling - lighter background and less rounded corners
+a.internal {
+  background-color: color-mix(in srgb, var(--highlight) 30%, transparent);
+  border-radius: 3px;
+  
+  &:has(> img) {
+    background-color: transparent;
+    border-radius: 0;
+  }
+}
+
+// Make article-title big
+.article-title {
+  font-size: 3.25em;
+  font-weight: normal;
+  line-height: 1.1;
 }

@@ -3,7 +3,15 @@
   font-style: normal;
   font-weight: normal;
   font-display: swap;
-  src: url("/static/fonts/TheCatsWhiskers.woff2") format("woff2");
+  src: url("/static/fonts/The Cats Whiskers/the_cats_whiskers-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "The Cats Whiskers";
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url("/static/fonts/The Cats Whiskers/the_cats_whiskers_italic-webfont.woff2") format("woff2");
 }
 
 @font-face {
@@ -44,31 +52,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/static/fonts/FiraCode-Regular.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Fira Code";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("/static/fonts/FiraCode-Medium.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Fira Code";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("/static/fonts/FiraCode-SemiBold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Fira Code";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("/static/fonts/FiraCode-Bold.woff2") format("woff2");
+  src: url("/static/fonts/FiraCode/FiraCode-VF.ttf") format("truetype");
 }
 
 /* Atkinson Hyperlegible Next - Sans-serif font optimized for readability */
@@ -77,35 +61,5 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/static/fonts/AtkinsonHyperlegibleNext-Regular.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Atkinson Hyperlegible Next";
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/static/fonts/AtkinsonHyperlegibleNext-Italic.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Atkinson Hyperlegible Next";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("/static/fonts/AtkinsonHyperlegibleNext-Bold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Atkinson Hyperlegible Next";
-  font-style: italic;
-  font-weight: 700;
-  font-display: swap;
-  src: url("/static/fonts/AtkinsonHyperlegibleNext-BoldItalic.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: 'Noto Color Emoji';
-  src: url('/static/fonts/NotoColorEmoji.woff2') format('woff2');
-  font-display: swap;
+  src: url("/static/fonts/Atkinson Hyperlegible Next/For Professional Use Only/Variable/AtkinsonHyperlegibleNextVF-Variable.ttf") format("truetype");
 }

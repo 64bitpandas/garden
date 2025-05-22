@@ -4,11 +4,31 @@
 
   &[show-comma="true"] {
     > *:not(:last-child) {
-      margin-right: 8px;
-
       &::after {
-        content: ",";
+        content: " // ";
+        color: var(--darkgray);
       }
     }
+  }
+
+  .contentmeta-emoji {
+    height: 1.5em;
+    width: 1.5em;
+    vertical-align: -0.3em;
+    margin: 0;
+  }
+
+  .question-mark {
+    transform: translateY(-0.3em) translateX(-0.25em);
+    font-size: 0.75em;
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+  }
+
+  .stage-header {
+    font-family: "The Cats Whiskers", serif;
+    font-size: 1.25em;
+    color: var(--darkgray);
   }
 }

@@ -1,6 +1,6 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import breadcrumbsStyle from "./styles/breadcrumbs.scss"
-import { FullSlug, SimpleSlug, resolveRelative, simplifySlug } from "../util/path"
+import { FullSlug, SimpleSlug, resolveRelative, simplifySlug, pathToRoot } from "../util/path"
 import { classNames } from "../util/lang"
 import { trieFromAllFiles } from "../util/ctx"
 
@@ -76,12 +76,19 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
       crumbs.pop()
     }
 
+    const baseDir = pathToRoot(fileData.slug!)
+    const leafImagePath = `${baseDir}/static/leaf.png`
+
     return (
       <nav class={classNames(displayClass, "breadcrumb-container")} aria-label="breadcrumbs">
         {crumbs.map((crumb, index) => (
           <div class="breadcrumb-element">
             <a href={crumb.path}>{crumb.displayName}</a>
-            {index !== crumbs.length - 1 && <p>{` ${options.spacerSymbol} `}</p>}
+            {index !== crumbs.length - 1 && (
+              <span class="spacer">
+                <img src={leafImagePath} alt="leaf divider" class="breadcrumb-divider" />
+              </span>
+            )}
           </div>
         ))}
       </nav>

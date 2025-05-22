@@ -5,7 +5,18 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.DesktopOnly(Component.Flex({
+      components: [
+        { Component: Component.Graph(), grow: true, align: "start" },
+        { Component: Component.Backlinks(), grow: true, align: "start" },
+      ],
+      direction: "row",
+      gap: "2rem",
+    })),
+    Component.MobileOnly(Component.Backlinks()),
+    Component.MobileOnly(Component.Graph()),
+  ],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/64bitpandas/garden",
@@ -23,6 +34,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
+    Component.MobileOnly(Component.TableOfContents()),
   ],
   left: [
     Component.PageTitle(),
@@ -33,16 +45,12 @@ export const defaultContentPageLayout: PageLayout = {
           Component: Component.Search(),
           grow: true,
         },
-        { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
       ],
     }),
     Component.Explorer(),
   ],
   right: [
-    Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
   ],
 }
 
