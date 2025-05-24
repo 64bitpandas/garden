@@ -19,10 +19,29 @@
   }
 }
 
-// code block border
-pre {
+// code block border around title
+figure[data-rehype-pretty-code-figure] {
   border: 1px solid var(--rose);
+  border-radius: 5px;
+
+  figcaption[data-rehype-pretty-code-title] {
+    border: none;
+    padding: 0.25em 1em;
+    border-radius: 0;
+    color: var(--highlight-low);
+    background-color: var(--rose);
+    width: auto;
+  }
+
+  pre[data-language] {
+    margin: 0;
+    border: none;
+    border-radius: 0px;
+    padding-top: 0.5em;
+  }
 }
+
+
 
 .clipboard-button {
   position: absolute;
