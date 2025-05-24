@@ -82,11 +82,20 @@ export const defaultListPageLayout: PageLayout = {
           Component: Component.Search(),
           grow: true,
         },
+        {
+          Component: Component.MobileOnly(
+            Component.Explorer({
+              customIcons: explorerCustomIcons,
+            }),
+          ),
+        },
       ],
     }),
-    Component.Explorer({
-      customIcons: explorerCustomIcons,
-    }),
+    Component.DesktopOnly(
+      Component.Explorer({
+        customIcons: explorerCustomIcons,
+      }),
+    ),
   ],
   right: [],
 }

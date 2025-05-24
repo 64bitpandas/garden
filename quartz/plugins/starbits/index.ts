@@ -10,4 +10,4 @@ const components: Record<string, ComponentType<any>> = {
 } as const
 
 // Export the map and individual components
-export { components }
+export { components };

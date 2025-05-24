@@ -22,6 +22,15 @@ function toggleToc(this: HTMLElement) {
   const content = this.nextElementSibling as HTMLElement | undefined
   if (!content) return
   content.classList.toggle("collapsed")
+  
+  // Add this to properly show/hide the content
+  if (content.classList.contains("collapsed")) {
+    content.style.maxHeight = "0"
+    content.style.overflow = "hidden"
+  } else {
+    content.style.maxHeight = ""
+    content.style.overflow = ""
+  }
 }
 
 function setupToc() {

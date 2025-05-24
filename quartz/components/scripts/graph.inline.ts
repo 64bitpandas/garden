@@ -97,6 +97,20 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   const visited = getVisited()
   removeAllChildren(graph)
 
+  // Get dimensions, ensure they're non-zero
+  let width = graph.offsetWidth
+  let height = graph.offsetHeight
+  
+  // If dimensions are zero, set minimum values or wait for layout
+  if (width === 0 || height === 0) {
+    // Option 1: Set minimum dimensions
+    width = width || 300
+    height = height || 200
+    
+    // Option 2: Wait for layout to complete (alternative approach)
+    // return setTimeout(() => renderGraph(graph, fullSlug), 100)
+  }
+
   let {
     drag: enableDrag,
     zoom: enableZoom,
@@ -184,9 +198,6 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
         target: nodes.find((n) => n.id === l.target)!,
       })),
   }
-
-  const width = graph.offsetWidth
-  const height = Math.max(graph.offsetHeight, 250)
 
   // we virtualize the simulation and use pixi to actually render it
   const simulation: Simulation<NodeData, LinkData> = forceSimulation<NodeData>(graphData.nodes)
