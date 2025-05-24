@@ -20,6 +20,7 @@ export interface Options {
   filterFn: (node: FileTrieNode) => boolean
   mapFn: (node: FileTrieNode) => void
   order: OrderEntries[]
+  customIcons?: Record<string, string> // Add this new option for custom icons
 }
 
 const defaultOptions: Options = {
@@ -48,6 +49,7 @@ const defaultOptions: Options = {
   },
   filterFn: (node) => node.slugSegment !== "tags",
   order: ["filter", "map", "sort"],
+  customIcons: {}, // Default to empty object
 }
 
 export type FolderState = {
@@ -71,6 +73,7 @@ export default ((userOpts?: Partial<Options>) => {
           sortFn: opts.sortFn.toString(),
           filterFn: opts.filterFn.toString(),
           mapFn: opts.mapFn.toString(),
+          customIcons: opts.customIcons,
         })}
       >
         <button

@@ -1,18 +1,30 @@
-# Quartz v4
+# ben's garden
 
 > “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
-Quartz v4 features a from-the-ground rewrite focusing on end-user extensibility and ease-of-use.
+Welcome to the [seventh](https://garden.bencuan.me/meta/history) iteration of my [personal website](https://bencuan.me)! The Garden is my current home on the internet, and aims to be a complete repository of my knowledge, thoughts, and ideas. 
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+You can view it live here: https://garden.bencuan.me
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+For more information about how I designed and built this, see these pages:
+- [About the Garden](https://garden.bencuan.me/meta/index)
+- [Garden Design](https://garden.bencuan.me/meta/garden-design)
+- [Build Log](https://garden.bencuan.me/meta/build-log)
 
-## Sponsors
+## Localdev
 
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+```bash
+# install dependencies
+npm install
+
+# start local server on localhost:8080
+npm run dev
+```
+
+## Contact me
+
+See my [contact me page](https://garden.bencuan.me/contact-me) for more info!
+
+## Credits
+
+This garden is built atop [Quartz 4.5](https://quartz.jzhao.xyz/). Additional credits for various good ideas I stole from other awesome places around the internet can be found on my [inspiration page](https://garden.bencuan.me/meta/inspiration).

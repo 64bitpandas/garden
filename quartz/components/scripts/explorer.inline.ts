@@ -12,6 +12,7 @@ interface ParsedOptions {
   filterFn: (node: FileTrieNode) => boolean
   mapFn: (node: FileTrieNode) => void
   order: "sort" | "filter" | "map"[]
+  customIcons?: Record<string, string>
 }
 
 type FolderState = {
@@ -107,9 +108,22 @@ function createFolderNode(
   const titleContainer = folderContainer.querySelector("div") as HTMLElement
   const folderOuter = li.querySelector(".folder-outer") as HTMLElement
   const ul = folderOuter.querySelector("ul") as HTMLUListElement
+  const folderIcon = folderContainer.querySelector(".folder-icon") as SVGElement
 
   const folderPath = node.slug
   folderContainer.dataset.folderpath = folderPath
+  
+  // Check if this is a top-level folder with a custom icon
+  const folderName = folderPath.split('/')[0]
+  const customIcon = opts.customIcons?.[folderName]
+  if (customIcon) {
+    // Replace the SVG with an img element
+    const img = document.createElement('img')
+    img.src = customIcon
+    img.alt = folderName + " icon"
+    img.className = "custom-folder-icon"
+    folderIcon.replaceWith(img)
+  }
 
   if (opts.folderClickBehavior === "link") {
     // Replace button with link for link behavior
@@ -163,6 +177,7 @@ async function setupExplorer(currentSlug: FullSlug) {
       sortFn: new Function("return " + (dataFns.sortFn || "undefined"))(),
       filterFn: new Function("return " + (dataFns.filterFn || "undefined"))(),
       mapFn: new Function("return " + (dataFns.mapFn || "undefined"))(),
+      customIcons: dataFns.customIcons || {},
     }
 
     // Get folder state from local storage
@@ -286,13 +301,12 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   }
 })
 
-window.addEventListener("resize", function () {
+window.addEventListener("resize", function() {
   // Desktop explorer opens by default, and it stays open when the window is resized
   // to mobile screen size. Applies `no-scroll` to <html> in this edge case.
   const explorer = document.querySelector(".explorer")
   if (explorer && !explorer.classList.contains("collapsed")) {
     document.documentElement.classList.add("mobile-no-scroll")
-    return
   }
 })
 

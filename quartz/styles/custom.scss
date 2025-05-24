@@ -105,3 +105,47 @@ a.internal {
   font-weight: normal;
   line-height: 1.1;
 }
+
+.custom-folder-icon {
+  height: 1.2em;
+  width: 1.2em;
+  vertical-align: -0.2em;
+  display: inline-block;
+  margin: 0;
+}
+
+.content-meta {
+  margin-top: 0;
+  color: var(--gray);
+
+  &[show-comma="true"] {
+    > *:not(:last-child) {
+      &::after {
+        content: " // ";
+        color: var(--darkgray);
+      }
+    }
+  }
+
+  .contentmeta-emoji {
+    height: 1.5em;
+    width: 1.5em;
+    vertical-align: -0.3em;
+    margin: 0;
+  }
+
+  .question-mark {
+    transform: translateY(-0.3em) translateX(-0.25em);
+    font-size: 0.75em;
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+  }
+
+  .stage-header {
+    font-family: "The Cats Whiskers", serif;
+    font-size: 1.25em;
+    color: var(--darkgray);
+  }
+}
+
