@@ -19,11 +19,11 @@ const defaultOptions: Options = {
   className: "emoji-svg",
 }
 
-export const EmojiSvg: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
+export const CustomInlineEmoji: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
   const opts = { ...defaultOptions, ...userOpts }
   
   return {
-    name: "EmojiSvg",
+    name: "CustomInlineEmoji",
     markdownPlugins() {
       return [
         () => {

@@ -74,8 +74,9 @@ const config: QuartzConfig = {
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
+      Plugin.Starbits(),
       Plugin.Latex({ renderEngine: "katex" }),
-      Plugin.EmojiSvg(),
+      Plugin.CustomInlineEmoji(),
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [
