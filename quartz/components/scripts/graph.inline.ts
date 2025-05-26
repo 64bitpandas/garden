@@ -96,19 +96,14 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   const slug = simplifySlug(fullSlug)
   const visited = getVisited()
   removeAllChildren(graph)
-
-  // Get dimensions, ensure they're non-zero
-  let width = graph.offsetWidth
-  let height = graph.offsetHeight
   
-  // If dimensions are zero, set minimum values or wait for layout
-  if (width === 0 || height === 0) {
-    // Option 1: Set minimum dimensions
-    width = width || 300
-    height = height || 200
-    
-    // Option 2: Wait for layout to complete (alternative approach)
-    // return setTimeout(() => renderGraph(graph, fullSlug), 100)
+  graph.style.visibility = "visible" // offsetWidth is always 0 when element is hidden
+  let width = graph.parentElement?.offsetWidth || 300
+  let height = graph.parentElement?.offsetHeight || 250 // this seems to always be 0
+  
+  // this function seems to be getting called twice, once with the correct dimensions and once without
+  if (!width && !height) {
+    return () => {}
   }
 
   let {
