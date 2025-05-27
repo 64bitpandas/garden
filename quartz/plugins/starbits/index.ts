@@ -2,11 +2,13 @@
 import { ComponentType } from "preact";
 import Divider from "./Divider";
 import CustomEmojiTable from "./CustomEmojiTable";
+import SiteStats from "./SiteStats";
 
 // Create a map of component names to their implementations
 const components: Record<string, ComponentType<any>> = {
   "divider": Divider,
   "custom_emoji_table": CustomEmojiTable,
+  "site_stats": SiteStats,
 } as const
 
 // Export the map and individual components

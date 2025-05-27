@@ -62,6 +62,10 @@ const config: QuartzConfig = {
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter", "git", "filesystem"],
       }),
+      Plugin.GlobalStats({
+        excludeTags: ["private", "draft"],
+        excludeDirs: ["quartz-docs"],
+      }),
       Plugin.SyntaxHighlighting({
         theme: {
           light: "rose-pine-dawn",
@@ -84,6 +88,7 @@ const config: QuartzConfig = {
       Plugin.ComponentResources(),
       Plugin.ContentPage(),
       Plugin.FolderPage(),
+      Plugin.HomePage(),
       Plugin.TagPage(),
       Plugin.ContentIndex({
         enableSiteMap: true,

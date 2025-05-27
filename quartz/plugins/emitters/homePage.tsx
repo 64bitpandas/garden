@@ -6,7 +6,7 @@ import BodyConstructor from "../../components/Body"
 import { pageResources, renderPage } from "../../components/renderPage"
 import { FullPageLayout } from "../../cfg"
 import { pathToRoot } from "../../util/path"
-import { defaultContentPageLayout, sharedPageComponents } from "../../../quartz.layout"
+import { defaultContentPageLayout, homepageLayout, sharedPageComponents } from "../../../quartz.layout"
 import { Content } from "../../components"
 import chalk from "chalk"
 import { write } from "./helpers"
@@ -14,6 +14,7 @@ import { BuildCtx } from "../../util/ctx"
 import { Node } from "unist"
 import { StaticResources } from "../../util/resources"
 import { QuartzPluginData } from "../vfile"
+import { render } from "preact-render-to-string"
 
 async function processContent(
   ctx: BuildCtx,
@@ -45,10 +46,10 @@ async function processContent(
   })
 }
 
-export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpts) => {
+export const HomePage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpts) => {
   const opts: FullPageLayout = {
     ...sharedPageComponents,
-    ...defaultContentPageLayout,
+    ...homepageLayout,
     pageBody: Content(),
     ...userOpts,
   }
@@ -58,7 +59,7 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
   const Body = BodyConstructor()
 
   return {
-    name: "ContentPage",
+    name: "HomePage",
     getQuartzComponents() {
       return [
         Head,
@@ -78,14 +79,13 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
       let containsIndex = false
 
       for (const [tree, file] of content) {
-        const slug = file.data.slug!
-        if (slug === "index") {
+        
+        // Only process the root index page
+        if (file.data.filePath === "content/vsh/index.md") {
           containsIndex = true
+          console.log("HOMEPAGE", file.data.slug)
+          yield processContent(ctx, tree, file.data, allFiles, opts, resources)
         }
-
-        // only process non-tag pages, and non-index pages. EXCLUDE the root homepage, that is handled by the HomePage plugin!
-        if (slug.endsWith("index") || slug.startsWith("tags/")) continue
-        yield processContent(ctx, tree, file.data, allFiles, opts, resources)
       }
 
       if (!containsIndex) {
@@ -99,21 +99,24 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
     async *partialEmit(ctx, content, resources, changeEvents) {
       const allFiles = content.map((c) => c[1].data)
 
-      // find all slugs that changed or were added
-      const changedSlugs = new Set<string>()
+      // Check if root index page was changed
+      let indexChanged = false
       for (const changeEvent of changeEvents) {
         if (!changeEvent.file) continue
-        if (changeEvent.type === "add" || changeEvent.type === "change") {
-          changedSlugs.add(changeEvent.file.data.slug!)
+        if ((changeEvent.type === "add" || changeEvent.type === "change") && 
+            changeEvent.file.path === "content/vsh/index.md") {
+          indexChanged = true
+          break
         }
       }
 
-      for (const [tree, file] of content) {
-        const slug = file.data.slug!
-        if (!changedSlugs.has(slug)) continue
-        if (slug.endsWith("/index") || slug.startsWith("tags/")) continue
-
-        yield processContent(ctx, tree, file.data, allFiles, opts, resources)
+      // Only process if the root index page changed
+      if (indexChanged) {
+        for (const [tree, file] of content) {
+          if (file.data.filePath === "content/vsh/index.md") {
+            yield processContent(ctx, tree, file.data, allFiles, opts, resources)
+          }
+        }
       }
     },
   }

@@ -99,3 +99,12 @@ export const defaultListPageLayout: PageLayout = {
   ],
   right: [],
 }
+
+// custom layout for the root homepage
+export const homepageLayout: PageLayout = {
+  beforeBody: [
+  ],
+  left: [
+  ],
+  right: [],
+}
