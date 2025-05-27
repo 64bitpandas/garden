@@ -4,3 +4,6 @@
 [submodule "static/fonts"]
 	path = static/fonts
 	url = https://github.com/64bitpandas/fonts
+[submodule "quartz/static/fonts"]
+	path = quartz/static/fonts
+	url = https://github.com/64bitpandas/fonts

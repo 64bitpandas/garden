@@ -1,2 +1,0 @@
-# fonts
-Private font repository
