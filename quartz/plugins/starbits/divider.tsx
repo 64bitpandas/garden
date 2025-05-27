@@ -12,7 +12,7 @@ export default function Divider(props: Options) {
           alt="Decorative divider" 
           style={{ 
             height: props.height,
-            width: "auto",
+            width: "50%",
             display: "block",
             margin: "1.5rem auto"
           }} 

@@ -48,7 +48,6 @@ async function processContent(
 
 export const HomePage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpts) => {
   const opts: FullPageLayout = {
-    ...sharedPageComponents,
     ...homepageLayout,
     pageBody: Content(),
     ...userOpts,

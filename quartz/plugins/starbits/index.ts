@@ -6,6 +6,8 @@ import SiteStats from "./SiteStats";
 import SpotifyNowPlaying from "./SpotifyNowPlaying";
 import Weather from "./Weather";
 import TurtleNetStatus from "./TurtleNetStatus";
+import HomepageTitle from "./HomepageTitle";
+import HomepageHeader from "./HomepageHeader";
 
 // Create a map of component names to their implementations
 const components: Record<string, ComponentType<any>> = {
@@ -15,6 +17,8 @@ const components: Record<string, ComponentType<any>> = {
   "spotify_now_playing": SpotifyNowPlaying,
   "weather": Weather,
   "turtlenet_status": TurtleNetStatus,
+  "homepage_title": HomepageTitle,
+  "homepage_header": HomepageHeader,
 } as const
 
 // Export the map and individual components

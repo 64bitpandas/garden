@@ -1,6 +1,6 @@
 @use "./base.scss";
 @use "colors";
-@use 'fonts';
+@use "fonts";
 
 // Custom scrollbar
 * {
@@ -40,8 +40,6 @@ figure[data-rehype-pretty-code-figure] {
     padding-top: 0.5em;
   }
 }
-
-
 
 .clipboard-button {
   position: absolute;
@@ -88,7 +86,7 @@ figure[data-rehype-pretty-code-figure] {
 }
 .custom-emoji {
   height: 1.5em;
-  width:  1.5em;
+  width: 1.5em;
   vertical-align: -0.3em;
   margin: 0;
 }
@@ -96,7 +94,7 @@ figure[data-rehype-pretty-code-figure] {
 .graph {
   width: 100%;
   min-width: 0; // Prevents flex item from overflowing
-  
+
   & > .graph-outer {
     width: 100%;
   }
@@ -111,7 +109,7 @@ figure[data-rehype-pretty-code-figure] {
 a.internal {
   background-color: color-mix(in srgb, var(--highlight) 30%, transparent);
   border-radius: 3px;
-  
+
   &:has(> img) {
     background-color: transparent;
     border-radius: 0;
@@ -171,4 +169,77 @@ a.internal {
 .explorer-toggle.mobile-explorer {
   position: relative;
 }
-    
+
+.homepage-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5em;
+  font-weight: normal;
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 0.25em;
+  color: var(--darkgray);
+  font-family: "The Cats Whiskers", serif;
+
+  .homepage-title-panda {
+    height: 1.5em;
+    width: 1.5em;
+    margin: 0;
+    margin-left: 0.5rem;
+  }
+}
+
+.homepage-subtitle {
+  font-size: 1.25em;
+  font-weight: normal;
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  color: var(--darkgray);
+  font-family: "Charter", serif;
+  text-align: center;
+}
+
+.homepage-divider {
+  width: 33%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.homepage-top-banner {
+  width: 100%;
+  max-width: 100vw;
+  height: 40px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.homepage-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 0.25em;
+  color: var(--darkgray);
+  font-family: "Charter", serif;
+
+  .homepage-header-icon {
+    height: 1.5em;
+    width: 1.5em;
+    margin: 0;
+    margin-right: 0.5rem;
+  }
+}

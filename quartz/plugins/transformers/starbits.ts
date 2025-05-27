@@ -38,20 +38,12 @@ export const Starbits: QuartzTransformerPlugin<Partial<Options>> = (userOpts) =>
     if (!propsString) return {}
     
     try {
-      // Convert the props string to valid JSON
-      // 1. Replace single quotes with double quotes
-      let jsonProps = propsString.replace(/'/g, '"')
       
-      // 2. Add quotes around unquoted keys
-      jsonProps = jsonProps.replace(/([{,]\s*)([a-zA-Z0-9_]+)(\s*:)/g, '$1"$2"$3')
-      
-      // 3. Handle special values like true, false, null, undefined
-      jsonProps = jsonProps
-        .replace(/"(true|false|null|undefined)"/g, (_, val) => val)
-        .replace(/:\s*"(true|false|null|undefined)"/g, (_, val) => ': ' + val)
-      
-      // Parse the JSON
-      return JSON.parse(jsonProps)
+      // replace all special double quotes with regular double quotes
+      propsString = propsString.replaceAll(`“`, '"')
+      propsString = propsString.replaceAll(`”`, '"')
+      // console.log(chalk.magenta(`\n[Starbits] Parsing props: ${propsString}`))
+      return JSON.parse(propsString)
     } catch (err) {
       console.error(`\n[Starbits] Error parsing props:`, err, propsString)
       return {}

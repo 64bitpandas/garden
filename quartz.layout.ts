@@ -1,4 +1,4 @@
-import { PageLayout, SharedLayout } from "./quartz/cfg"
+import { FullPageLayout, PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
 const explorerCustomIcons = {
@@ -101,10 +101,39 @@ export const defaultListPageLayout: PageLayout = {
 }
 
 // custom layout for the root homepage
-export const homepageLayout: PageLayout = {
-  beforeBody: [
-  ],
+export const homepageLayout: FullPageLayout = {
+  beforeBody: [],
   left: [
+    Component.Spacer(),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        {
+          Component: Component.MobileOnly(
+            Component.Explorer({
+              customIcons: explorerCustomIcons,
+            }),
+          ),
+        },
+      ],
+    }),
+    Component.DesktopOnly(
+      Component.Explorer({
+        customIcons: explorerCustomIcons,
+      }),
+    ),
   ],
   right: [],
+  head: Component.Head(),
+  header: [Component.Spacer()],
+  afterBody: [],
+  pageBody: Component.Content(),
+  footer: Component.Footer({
+    links: {
+      GitHub: "https://github.com/64bitpandas/garden",
+    },
+  }),
 }

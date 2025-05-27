@@ -40,8 +40,7 @@ export default function SpotifyNowPlaying(_props: any) {
               width: "25px",
               height: "25px",
               borderRadius: "1px",
-              marginRight: "5px",
-              marginLeft: "5px",
+              margin: "0 5px",
               verticalAlign: "middle",
             }}
           />

@@ -27,15 +27,14 @@ export default function Weather(_props: any) {
         setInterval(updateWeatherData, 600000);
       `}</script>
       <div className="weather-now-playing" style="display: none;">
-        It is currently 
+        It is currently
         <img
           src=""
           alt=""
           style={{
             width: "30px",
             height: "30px",
-            marginLeft: "5px",
-            marginRight: "5px",
+            margin: "0 5px",
             borderRadius: "50%",
             verticalAlign: "middle",
             backgroundColor: "#99d1db", // catppuccin frappe sky
