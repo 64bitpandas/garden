@@ -13,8 +13,8 @@ export default function SiteStats(_props: any) {
   
   return (
     <span>
-      This site was last updated on <b>{formattedDate}</b>. 
-      It currently contains <b>{formattedWordCount}</b> words across <b>{pageCount}</b> pages.
+      This site was last updated on <b>📆 {formattedDate}</b>. 
+      It currently contains <b>✏️ {formattedWordCount} words</b> across <b>📜 {pageCount} pages</b>.
     </span>
   )
 }

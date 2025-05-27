@@ -17,7 +17,7 @@ export const GlobalStats: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
   const opts = { ...defaultOptions, ...userOpts }
   
   return {
-    name: "TotalWordCount",
+    name: "GlobalStats",
     markdownPlugins() {
       return [
         () => {

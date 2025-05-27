@@ -83,7 +83,6 @@ export const HomePage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpts)
         // Only process the root index page
         if (file.data.filePath === "content/vsh/index.md") {
           containsIndex = true
-          console.log("HOMEPAGE", file.data.slug)
           yield processContent(ctx, tree, file.data, allFiles, opts, resources)
         }
       }

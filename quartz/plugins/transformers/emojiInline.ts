@@ -19,6 +19,24 @@ const defaultOptions: Options = {
   className: "emoji-svg",
 }
 
+export function emojiToSvg(emoji: string, opts: Options) {
+  const iconCode = getIconCode(emoji)
+  const svgPath = `${opts.staticPath}/noto-coloremoji-svg/emoji_u${iconCode}.svg`
+  return `<img src="${svgPath}" alt="${emoji}" class="${opts.className}" />`
+}
+
+export function replaceAllEmoji(html: string) {
+  return html.replaceAll(emojiRegex, (value: string) => {
+    try {
+      const svgPath = emojiToSvg(value, defaultOptions)
+      return svgPath
+    } catch (e) {
+      // If emoji processing fails, return the original emoji
+      return value
+    }
+  })
+}
+
 export const CustomInlineEmoji: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
   const opts = { ...defaultOptions, ...userOpts }
   
@@ -33,9 +51,7 @@ export const CustomInlineEmoji: QuartzTransformerPlugin<Partial<Options>> = (use
                 emojiRegex,
                 (value: string) => {
                   try {
-                    const iconCode = getIconCode(value)
-                    const svgPath = `${opts.staticPath}/noto-coloremoji-svg/emoji_u${iconCode}.svg`
-                    // console.log("Processed emoji:", value, "with code", iconCode)
+                   const svgPath = emojiToSvg(value, opts)
                     return {
                       type: "html",
                       value: `<img src="${svgPath}" alt="${value}" class="${opts.className}" />`,

@@ -6,6 +6,8 @@ import { render } from "preact-render-to-string"
 import { ComponentType } from "preact"
 import { components as StarbitsComponents } from "../../plugins/starbits"
 import { h } from "preact"
+import { replaceAllEmoji } from "./emojiInline"
+import chalk from "chalk"
 
 
 interface Options {
@@ -76,15 +78,18 @@ export const Starbits: QuartzTransformerPlugin<Partial<Options>> = (userOpts) =>
                       const props = propsString ? parseProps(propsString) : {}
                       
                       // Render the component to static HTML
-                      const html = render(h(Component, props))
+                      let html = render(h(Component, props))
+
+                      // Replace emoji to svg
+                      html = replaceAllEmoji(html)
                       
-                      console.log(`\n[Starbits] Rendered component ${componentName}`)
+                      console.log(chalk.magenta(`\n[Starbits] Rendered component ${componentName}`))
                       return {
                         type: "html",
                         value: html
                       }
                     } catch (err) {
-                      console.error(`\n[Starbits] Error rendering component ${componentName}:`, err)
+                      console.error(chalk.red(`\n[Starbits] Error rendering component ${componentName}:`), err)
                       return match
                     }
                   } else {
