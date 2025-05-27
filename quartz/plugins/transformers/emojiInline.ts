@@ -51,10 +51,10 @@ export const CustomInlineEmoji: QuartzTransformerPlugin<Partial<Options>> = (use
                 emojiRegex,
                 (value: string) => {
                   try {
-                   const svgPath = emojiToSvg(value, opts)
+                    const svgPath = emojiToSvg(value, opts)
                     return {
                       type: "html",
-                      value: `<img src="${svgPath}" alt="${value}" class="${opts.className}" />`,
+                      value: svgPath,
                     }
                   } catch (e) {
                     // If emoji processing fails, return the original emoji
