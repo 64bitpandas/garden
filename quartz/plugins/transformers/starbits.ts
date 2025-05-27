@@ -84,6 +84,7 @@ export const Starbits: QuartzTransformerPlugin<Partial<Options>> = (userOpts) =>
                       html = replaceAllEmoji(html)
                       
                       console.log(chalk.magenta(`\n[Starbits] Rendered component ${componentName}`))
+                      console.log(html)
                       return {
                         type: "html",
                         value: html
