@@ -9,8 +9,8 @@ export interface Options {
 }
 
 const defaultOptions: Options = {
-  excludeTags: [], // Default: don't exclude any tags
-  excludeDirs: [], // Default: don't exclude any directories
+  excludeTags: [],
+  excludeDirs: [],
 }
 
 export const GlobalStats: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
@@ -22,9 +22,13 @@ export const GlobalStats: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
       return [
         () => {
           return (tree: Root, file) => {
-            // Skip files with excluded tags
+            // Skip files with excluded tags. Also skip the root index, since it causes issues
             const fileTags = file.data.frontmatter?.tags || []
-            if (opts.excludeTags?.some(tag => fileTags.includes(tag)) || opts.excludeDirs?.some(dir => file.data.slug?.startsWith(dir))) {
+            if (
+              file.data.filePath === 'content/vsh/index.md'
+              || opts.excludeTags?.some(tag => fileTags.includes(tag)) 
+              || opts.excludeDirs?.some(dir => file.data.slug?.startsWith(dir))
+            ) {
               return
             }
             

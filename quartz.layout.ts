@@ -126,7 +126,7 @@ export const homepageLayout: FullPageLayout = {
       }),
     ),
   ],
-  right: [],
+  right: [Component.DesktopOnly(Component.Spacer())],
   head: Component.Head(),
   header: [Component.Spacer()],
   afterBody: [],
