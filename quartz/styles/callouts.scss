@@ -1,5 +1,6 @@
 @use "./variables.scss" as *;
 @use "sass:color";
+@use "colors";
 
 .callout {
   border: 1px solid var(--border);
@@ -45,7 +46,7 @@
   }
 
   &[data-callout="abstract"] {
-    --color: #00b0ff;
+    --color: var(--cat-teal);
     --border: #00b0ff44;
     --bg: #00b0ff10;
     --callout-icon: var(--callout-icon-abstract);

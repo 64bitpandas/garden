@@ -3,23 +3,7 @@
 @use "fonts";
 @use "homepage";
 @use "links";
-
-// Custom scrollbar
-* {
-  &::-webkit-scrollbar {
-    width: 8px;
-    height: 6px; // thinner horizontal scrollbar
-
-    &-thumb {
-      background: var(--cat-green);
-      border-radius: 3px;
-    }
-
-    &-track {
-      background-color: var(--highlight-low);
-    }
-  }
-}
+@use "scrollbar";
 
 // code block border around title
 figure[data-rehype-pretty-code-figure] {
