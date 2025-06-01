@@ -62,7 +62,18 @@ function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndexMap, limit?:
     <pubDate>${content.date?.toUTCString()}</pubDate>
   </item>`
 
-  const items = Array.from(idx)
+  // Filter out 'All pages' and index pages
+  const filteredIdx = Array.from(idx).filter(([slug, content]) => {
+    // Exclude pages named 'All pages'
+    if (content.title === "All pages") return false
+
+    // Exclude index pages (pages that end with 'index' or are just 'index')
+    if (slug.endsWith("/index") || slug === "index") return false
+
+    return true
+  })
+
+  const items = filteredIdx
     .sort(([_, f1], [__, f2]) => {
       if (f1.date && f2.date) {
         return f2.date.getTime() - f1.date.getTime()

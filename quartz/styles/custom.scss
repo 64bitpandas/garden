@@ -165,7 +165,8 @@ figure[data-rehype-pretty-code-figure] {
 @media (max-width: 800px) {
   .page > #quartz-body .sidebar.left:has(.explorer) {
     z-index: 100;
-    background-color: transparent;
-    margin-top: 1.5em;
+    margin-top: 2em;
+    padding: 0;
+    padding-top: 1em;
   }
 }
