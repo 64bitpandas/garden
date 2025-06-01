@@ -19,6 +19,10 @@ export default function SpotifyNowPlaying(_props: any) {
                 const link = container.querySelector('a');
                 link.href = data.spotify_link;
                 container.style.display = 'block';
+                document.querySelector('.spotify-no-song').style.display = 'none';
+              } else {
+                document.querySelector('.spotify-no-song').style.display = 'block';
+                document.querySelector('.spotify-now-playing').style.display = 'none';
               }
             }
           } catch (error) {
@@ -30,6 +34,7 @@ export default function SpotifyNowPlaying(_props: any) {
         updateSpotifyData();
         setInterval(updateSpotifyData, 60000);
       `}</script>
+      <div className="spotify-no-song">I am not currently listening to anything.</div>
       <div className="spotify-now-playing" style="display: none;">
         I am currently listening to
         <a href="https://spotify.com" target="_blank" rel="noopener noreferrer">

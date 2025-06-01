@@ -174,12 +174,13 @@ a.internal {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   font-size: 2.5em;
   font-weight: normal;
   line-height: 1.1;
   margin-top: 0;
   margin-bottom: 0.25em;
-  color: var(--darkgray);
+  color: black;
   font-family: "The Cats Whiskers", serif;
 
   .homepage-title-panda {
@@ -241,5 +242,13 @@ a.internal {
     width: 1.5em;
     margin: 0;
     margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .page > #quartz-body .sidebar.left:has(.explorer) {
+    z-index: 100;
+    background-color: transparent;
+    margin-top: 1.5em;
   }
 }
