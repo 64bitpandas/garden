@@ -31,21 +31,32 @@ const defaultOptions: Options = {
     return node
   },
   sortFn: (a, b) => {
-    // Sort order: folders first, then files. Sort folders and files alphabeticall
-    if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
-      // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
-      // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
-      return a.displayName.localeCompare(b.displayName, undefined, {
-        numeric: true,
-        sensitivity: "base",
-      })
+    // Sort order: featured first, then by stage (evergreen > blossom > sprout), then folders, then files alphabetically
+
+    // Featured items come first
+    if (a.data?.featured && !b.data?.featured) return -1
+    if (!a.data?.featured && b.data?.featured) return 1
+
+    // Then sort by stage (higher stage numbers first)
+    if (a.data?.stage && b.data?.stage) {
+      if (a.data.stage !== b.data.stage) {
+        return b.data.stage - a.data.stage // Higher stage numbers first
+      }
+    } else if (a.data?.stage && !b.data?.stage) {
+      return -1 // Items with stage come before those without
+    } else if (!a.data?.stage && b.data?.stage) {
+      return 1
     }
 
-    if (!a.isFolder && b.isFolder) {
-      return 1
-    } else {
-      return -1
-    }
+    // Then folders before files
+    if (a.isFolder && !b.isFolder) return -1
+    if (!a.isFolder && b.isFolder) return 1
+
+    // Finally sort alphabetically
+    return a.displayName.localeCompare(b.displayName, undefined, {
+      numeric: true,
+      sensitivity: "base",
+    })
   },
   filterFn: (node) => node.slugSegment !== "tags",
   order: ["filter", "map", "sort"],

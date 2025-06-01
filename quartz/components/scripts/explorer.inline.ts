@@ -87,7 +87,40 @@ function createFileNode(currentSlug: FullSlug, node: FileTrieNode): HTMLLIElemen
   const a = li.querySelector("a") as HTMLAnchorElement
   a.href = resolveRelative(currentSlug, node.slug)
   a.dataset.for = node.slug
-  a.textContent = node.displayName
+
+  // Add featured icon or stage icon if available
+  if (node.data?.featured) {
+    const img = document.createElement("img")
+    img.src = "/static/emoji/custom/star1.png"
+    img.alt = "Featured"
+    img.className = "note-stage-icon"
+    img.style.height = "1em"
+    img.style.width = "1em"
+    img.style.marginRight = "0.3em"
+    img.style.verticalAlign = "middle"
+    a.insertBefore(img, a.firstChild)
+  } else if (node.data?.stage) {
+    const stageIconMap: Record<string, string> = {
+      "1": "/static/emoji/custom/sprout.png",
+      "2": "/static/emoji/custom/blossom.png",
+      "3": "/static/emoji/custom/evergreen.png",
+    }
+
+    const stageIcon = stageIconMap[node.data.stage]
+    if (stageIcon) {
+      const img = document.createElement("img")
+      img.src = stageIcon
+      img.alt = `Stage ${node.data.stage}`
+      img.className = "note-stage-icon"
+      img.style.height = "1em"
+      img.style.width = "1em"
+      img.style.marginRight = "0.3em"
+      img.style.verticalAlign = "middle"
+      a.insertBefore(img, a.firstChild)
+    }
+  }
+
+  a.appendChild(document.createTextNode(node.displayName))
 
   if (currentSlug === node.slug) {
     a.classList.add("active")

@@ -136,9 +136,5 @@ export const homepageLayout: FullPageLayout = {
   header: [Component.Spacer()],
   afterBody: [],
   pageBody: Component.Content(),
-  footer: Component.Footer({
-    links: {
-      GitHub: "https://github.com/64bitpandas/garden",
-    },
-  }),
+  footer: Component.Footer(),
 }

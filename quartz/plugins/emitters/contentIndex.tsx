@@ -19,6 +19,10 @@ export type ContentDetails = {
   richContent?: string
   date?: Date
   description?: string
+  stage?: number
+  certainty?: number
+  featured?: string
+  customIcon?: string
 }
 
 interface Options {
@@ -120,6 +124,10 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
             title: file.data.frontmatter?.title!,
             links: file.data.links ?? [],
             tags: file.data.frontmatter?.tags ?? [],
+            stage: file.data.frontmatter?.stage ?? 0,
+            certainty: file.data.frontmatter?.certainty ?? 0,
+            featured: file.data.frontmatter?.featured ?? "",
+            customIcon: file.data.frontmatter?.customIcon ?? "",
             content: file.data.text ?? "",
             richContent: opts?.rssFullHtml
               ? escapeHTML(toHtml(tree as Root, { allowDangerousHtml: true }))

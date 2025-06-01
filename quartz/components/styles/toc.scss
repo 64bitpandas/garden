@@ -49,12 +49,12 @@ ul.toc-content.overflow {
 
   & > li > a {
     color: var(--dark);
-    opacity: 0.35;
+    opacity: 0.45;
     transition:
       0.5s ease opacity,
       0.3s ease color;
     &.in-view {
-      opacity: 0.75;
+      opacity: 0.85;
     }
   }
 

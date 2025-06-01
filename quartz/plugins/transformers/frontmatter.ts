@@ -147,6 +147,10 @@ declare module "vfile" {
         cssclasses: string[]
         socialImage: string
         comments: boolean | string
+        stage: number
+        certainty: number
+        featured: string
+        customIcon: string
       }>
   }
 }

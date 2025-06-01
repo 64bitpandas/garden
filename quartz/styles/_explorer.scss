@@ -47,4 +47,12 @@ button.desktop-explorer h2 {
   color: var(--cat-teal);
   font-weight: 600;
   text-decoration: underline;
+  margin-top: 10px !important;
+}
+
+.note-stage-icon {
+  height: 1.5em !important;
+  width: 1.5em !important;
+  display: inline-block;
+  margin: 0;
 }
