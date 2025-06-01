@@ -16,12 +16,14 @@ interface FolderContentOptions {
    */
   showFolderCount: boolean
   showSubfolders: boolean
+  showFolders?: boolean
   sort?: SortFn
 }
 
 const defaultOptions: FolderContentOptions = {
-  showFolderCount: true,
-  showSubfolders: true,
+  showFolderCount: false,
+  showSubfolders: false,
+  showFolders: false,
 }
 
 export default ((opts?: Partial<FolderContentOptions>) => {
@@ -36,7 +38,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
       return null
     }
 
-    const allPagesInFolder: QuartzPluginData[] =
+    const allPagesInFolder: QuartzPluginData[] = (!options.showFolders) ? [] :
       folder.children
         .map((node) => {
           // regular file, proceed
