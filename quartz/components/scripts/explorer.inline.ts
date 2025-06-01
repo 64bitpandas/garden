@@ -112,9 +112,6 @@ function createFileNode(currentSlug: FullSlug, node: FileTrieNode): HTMLLIElemen
       img.src = stageIcon
       img.alt = `Stage ${node.data.stage}`
       img.className = "note-stage-icon"
-      img.style.height = "1em"
-      img.style.width = "1em"
-      img.style.marginRight = "0.3em"
       img.style.verticalAlign = "middle"
       a.insertBefore(img, a.firstChild)
     }

@@ -2,10 +2,10 @@
 @use "fonts";
 
 .folder-container div > a {
-  color: var(--cat-green);
+  color: color-mix(in srgb, var(--cat-green) 75%, black);
   font-family: "Atkinson Hyperlegible Next", sans-serif;
-  font-size: 1.1em;
-  font-weight: 500;
+  font-size: 1.2em;
+  font-weight: 450;
   line-height: 1.5em;
   display: inline-block;
 }
@@ -26,7 +26,7 @@ button.desktop-explorer h2 {
   margin: 0;
   font-size: 1.5em;
   display: inline-block;
-  font-family: "Atkinson Hyperlegible Next", sans-serif;
+  font-family: "Fira Code", sans-serif;
 }
 
 .custom-folder-icon {
@@ -36,10 +36,6 @@ button.desktop-explorer h2 {
   display: inline-block;
   margin: 0;
   margin-right: 0.5em;
-}
-
-.explorer-content .content li {
-  margin-bottom: 0.25em;
 }
 
 .explorer-content ul li > a.active {
@@ -55,4 +51,5 @@ button.desktop-explorer h2 {
   width: 1.5em !important;
   display: inline-block;
   margin: 0;
+  margin-left: 0.3em;
 }
