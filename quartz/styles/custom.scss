@@ -147,3 +147,20 @@ figure[data-rehype-pretty-code-figure] {
     padding-top: 1em;
   }
 }
+
+.backlinks.desktop-only {
+  min-width: 150px;
+}
+
+.mobile-or-tablet-only {
+  @media all and (min-width: 1200px) {
+    display: none !important;
+  }
+}
+
+.graph h3,
+.backlinks h3 {
+  font-family: "Atkinson Hyperlegible Next", sans-serif;
+  font-size: 1.25em;
+  font-weight: 500;
+}

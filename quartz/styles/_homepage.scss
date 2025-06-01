@@ -124,3 +124,20 @@ body:has(.homepage-title) {
     margin: 0.1em;
   }
 }
+
+.weather-now-playing img {
+  background-color: color-mix(in srgb, var(--cat-blue) 30%, transparent);
+  border-radius: 15px;
+  margin: 5px;
+  height: 23px;
+  width: 23px;
+  vertical-align: middle;
+}
+
+.spotify-now-playing img {
+  width: 23px;
+  height: 23px;
+  vertical-align: middle;
+  margin: 5px;
+  border-radius: 15px;
+}

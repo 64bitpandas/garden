@@ -7,18 +7,8 @@ export default function SpotifyNowPlaying(_props: any) {
       <div className="spotify-now-playing" style="display: none;">
         I am currently listening to
         <a href="https://spotify.com" target="_blank" rel="noopener noreferrer">
-          <img
-            src=""
-            alt={``}
-            style={{
-              width: "25px",
-              height: "25px",
-              borderRadius: "1px",
-              margin: "0 5px",
-              verticalAlign: "middle",
-            }}
-          />
-          <b className="spotify-title"></b>
+          <img src="" alt={``} />
+          <span className="spotify-title"></span>
         </a>
         .
       </div>

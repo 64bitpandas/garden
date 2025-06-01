@@ -20,7 +20,14 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "garden.bencuan.me",
-    ignorePatterns: ["private", "meta/templates", ".obsidian", "daily", "blog", ...(process.env.GARDEN_DEV ? [] : ["quartz docs"])],
+    ignorePatterns: [
+      "private",
+      "about/templates",
+      ".obsidian",
+      "daily",
+      "blog",
+      ...(process.env.GARDEN_DEV ? [] : ["quartz docs"]),
+    ],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "local",

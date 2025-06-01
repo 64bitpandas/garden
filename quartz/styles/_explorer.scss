@@ -37,3 +37,14 @@ button.desktop-explorer h2 {
   margin: 0;
   margin-right: 0.5em;
 }
+
+.explorer-content .content li {
+  margin-bottom: 0.25em;
+}
+
+.explorer-content ul li > a.active {
+  opacity: 1;
+  color: var(--cat-teal);
+  font-weight: 600;
+  text-decoration: underline;
+}

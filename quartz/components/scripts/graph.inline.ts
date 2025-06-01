@@ -96,14 +96,21 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   const slug = simplifySlug(fullSlug)
   const visited = getVisited()
   removeAllChildren(graph)
-  
+
   graph.style.visibility = "visible" // offsetWidth is always 0 when element is hidden
-  let width = graph.parentElement?.offsetWidth || 300
-  let height = graph.parentElement?.offsetHeight || 250 // this seems to always be 0
-  
+  let width = graph.parentElement?.offsetWidth
+  let height = graph.parentElement?.offsetHeight
+
   // this function seems to be getting called twice, once with the correct dimensions and once without
   if (!width && !height) {
     return () => {}
+  }
+
+  if (!width) {
+    width = 400
+  }
+  if (!height) {
+    height = 250
   }
 
   let {
@@ -123,10 +130,9 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   } = JSON.parse(graph.dataset["cfg"]!) as D3Config
 
   const data: Map<SimpleSlug, ContentDetails> = new Map(
-    Object.entries<ContentDetails>(await fetchData).map(([k, v]) => [
-      simplifySlug(k as FullSlug),
-      v,
-    ]),
+    Object.entries<ContentDetails>(await fetchData)
+      .filter(([_, v]) => v.title !== "All pages") // Exclude "All pages" from the graph
+      .map(([k, v]) => [simplifySlug(k as FullSlug), v]),
   )
   const links: SimpleLinkData[] = []
   const tags: SimpleSlug[] = []
@@ -214,6 +220,11 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     "--dark",
     "--darkgray",
     "--bodyFont",
+    "--cat-green",
+    "--cat-teal",
+    "--cat-lavender",
+    "--cat-gray",
+    "--cat-maroon",
   ] as const
   const computedStyleMap = cssVars.reduce(
     (acc, key) => {
@@ -227,11 +238,11 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   const color = (d: NodeData) => {
     const isCurrent = d.id === slug
     if (isCurrent) {
-      return computedStyleMap["--secondary"]
+      return computedStyleMap["--cat-maroon"]
     } else if (visited.has(d.id) || d.id.startsWith("tags/")) {
-      return computedStyleMap["--tertiary"]
+      return computedStyleMap["--cat-teal"]
     } else {
-      return computedStyleMap["--gray"]
+      return computedStyleMap["--cat-green"]
     }
   }
 
@@ -292,7 +303,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
         alpha = l.active ? 1 : 0.2
       }
 
-      l.color = l.active ? computedStyleMap["--gray"] : computedStyleMap["--lightgray"]
+      l.color = l.active ? computedStyleMap["--cat-maroon"] : computedStyleMap["--cat-gray"]
       tweenGroup.add(new Tweened<LinkRenderData>(l).to({ alpha }, 200))
     }
 
@@ -447,7 +458,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       })
 
     if (isTagNode) {
-      gfx.stroke({ width: 2, color: computedStyleMap["--tertiary"] })
+      gfx.stroke({ width: 2, color: computedStyleMap["--cat-lavender"] })
     }
 
     nodesContainer.addChild(gfx)
@@ -472,7 +483,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     const linkRenderDatum: LinkRenderData = {
       simulationData: l,
       gfx,
-      color: computedStyleMap["--lightgray"],
+      color: computedStyleMap["--cat-gray"],
       alpha: 1,
       active: false,
     }

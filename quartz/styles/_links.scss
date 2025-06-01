@@ -75,7 +75,12 @@ a:not(.internal),
   }
 }
 
-a.internal {
+.backlinks > ul.overflow > li > a {
+  background-color: color-mix(in srgb, var(--cat-green) 30%, transparent);
+}
+
+a.internal,
+.backlinks .internal {
   &:has(> img) {
     background-color: transparent;
     border-radius: 0;

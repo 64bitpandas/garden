@@ -18,10 +18,12 @@ import Search from "./Search"
 import Footer from "./Footer"
 import DesktopOnly from "./DesktopOnly"
 import MobileOnly from "./MobileOnly"
+import MobileOrTabletOnly from "./MobileOrTabletOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 import Flex from "./Flex"
+import Grid from "./Grid"
 import ConditionalRender from "./ConditionalRender"
 
 export {
@@ -44,10 +46,12 @@ export {
   Footer,
   DesktopOnly,
   MobileOnly,
+  MobileOrTabletOnly,
   RecentNotes,
   NotFound,
   Breadcrumbs,
   Comments,
   Flex,
+  Grid,
   ConditionalRender,
 }

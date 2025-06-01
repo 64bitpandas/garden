@@ -19,13 +19,11 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   afterBody: [
     Component.DesktopOnly(
-      Component.Flex({
+      Component.Grid({
         components: [
-          { Component: Component.Graph(), grow: true, align: "start" },
-          { Component: Component.Backlinks(), grow: true, align: "start" },
+          { Component: Component.Graph(), align: "start" },
+          { Component: Component.Backlinks(), align: "start" },
         ],
-        direction: "row",
-        gap: "2rem",
       }),
     ),
     Component.MobileOnly(Component.Backlinks()),
@@ -48,7 +46,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
-    Component.MobileOnly(Component.TableOfContents()),
+    Component.MobileOrTabletOnly(Component.TableOfContents()),
   ],
   left: [
     Component.PageTitle(),
