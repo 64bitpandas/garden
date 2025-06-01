@@ -1,0 +1,39 @@
+@use "colors";
+@use "fonts";
+
+.folder-container div > a {
+  color: var(--cat-green);
+  font-family: "Atkinson Hyperlegible Next", sans-serif;
+  font-size: 1.1em;
+  font-weight: 500;
+  line-height: 1.5em;
+  display: inline-block;
+}
+
+.explorer-content ul li > a {
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+.explorer svg {
+  &:hover {
+    color: var(--cat-teal) !important;
+  }
+}
+
+button.mobile-explorer h2,
+button.desktop-explorer h2 {
+  margin: 0;
+  font-size: 1.5em;
+  display: inline-block;
+  font-family: "Atkinson Hyperlegible Next", sans-serif;
+}
+
+.custom-folder-icon {
+  height: 1.7em;
+  width: 1.7em;
+  vertical-align: -0.2em;
+  display: inline-block;
+  margin: 0;
+  margin-right: 0.5em;
+}

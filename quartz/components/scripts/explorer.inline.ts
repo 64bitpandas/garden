@@ -117,12 +117,19 @@ function createFolderNode(
   const folderName = folderPath.split("/")[0]
   const customIcon = opts.customIcons?.[folderName]
   if (customIcon) {
-    // Replace the SVG with an img element
+    // Replace the SVG with an img element wrapped in an anchor
     const img = document.createElement("img")
     img.src = customIcon
     img.alt = folderName + " icon"
     img.className = "custom-folder-icon"
-    folderIcon.insertAdjacentElement("afterend", img)
+
+    // Create anchor element with the same destination as folder
+    const a = document.createElement("a")
+    a.href = resolveRelative(currentSlug, folderPath)
+    a.dataset.for = folderPath
+    a.appendChild(img)
+
+    folderIcon.insertAdjacentElement("afterend", a)
   }
 
   if (opts.folderClickBehavior === "link") {

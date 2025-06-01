@@ -30,6 +30,12 @@ a:not(.internal),
       }
     }
   }
+
+  &:hover {
+    text-decoration: underline;
+    font-weight: 600;
+    color: var(--cat-teal) !important;
+  }
 }
 
 .external {
@@ -87,7 +93,7 @@ a.internal {
 
   &:hover {
     color: white !important;
-    background-color: var(--cat-green);
+    background-color: var(--cat-teal);
     font-weight: 550;
   }
 }

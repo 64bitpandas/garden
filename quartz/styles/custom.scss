@@ -4,6 +4,7 @@
 @use "homepage";
 @use "links";
 @use "scrollbar";
+@use "explorer";
 
 // code block border around title
 figure[data-rehype-pretty-code-figure] {
@@ -97,14 +98,6 @@ figure[data-rehype-pretty-code-figure] {
   font-size: 3.25em;
   font-weight: normal;
   line-height: 1.1;
-}
-
-.custom-folder-icon {
-  height: 1.2em;
-  width: 1.2em;
-  vertical-align: -0.2em;
-  display: inline-block;
-  margin: 0;
 }
 
 .content-meta {

@@ -2,9 +2,14 @@ import { FullPageLayout, PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
 const explorerCustomIcons = {
-  about: "/static/emoji/custom/panda.png",
-  projects: "/static/icons/projects.png",
-  notes: "/static/icons/notes.png",
+  about: "/static/emoji/custom/leaf.png",
+  community: "/static/emoji/custom/share_flower.png",
+  personal: "/static/emoji/custom/panda.png",
+  music: "/static/emoji/custom/musicnote.png",
+  recipes: "/static/emoji/noto-coloremoji-svg/emoji_u1f373.svg",
+  "game-guides": "/static/emoji/noto-coloremoji-svg/emoji_u1f411.svg",
+  homelabbing: "/static/emoji/custom/turtlenet2.png",
+  wip: "/static/emoji/noto-coloremoji-svg/emoji_u1f3d7.svg",
   // Add more folder-icon mappings as needed
 }
 
