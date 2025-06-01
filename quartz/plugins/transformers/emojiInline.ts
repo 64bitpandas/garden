@@ -37,6 +37,20 @@ export function replaceAllEmoji(html: string) {
   })
 }
 
+export function makeCustomEmoji(emoji: string, opts: Options) {
+  const imgPath = `${opts.staticPath}/custom/${emoji}.png`
+  const baseHtml = `<img src="${imgPath}" alt="${emoji}" class="custom-emoji ${opts.className}" />`
+
+  // Special case: duplicate stars if using ratings
+  if (emoji === "star2") {
+    return baseHtml.repeat(2)
+  } else if (emoji === "star3") {
+    return baseHtml.repeat(3)
+  } else {
+    return baseHtml
+  }
+}
+
 export const CustomInlineEmoji: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
   const opts = { ...defaultOptions, ...userOpts }
   
@@ -69,10 +83,9 @@ export const CustomInlineEmoji: QuartzTransformerPlugin<Partial<Options>> = (use
                 customEmojiRegex,
                 (...capture: string[]) => {
                   const name = capture[1]
-                  const imgPath = `${opts.staticPath}/custom/${name}.png`
                   return {
                     type: "html",
-                    value: `<img src="${imgPath}" alt="${name}" class="custom-emoji ${opts.className}" />`,
+                    value: makeCustomEmoji(name, opts),
                   }
                 },
               ],
