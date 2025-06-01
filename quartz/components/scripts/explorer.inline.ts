@@ -112,17 +112,17 @@ function createFolderNode(
 
   const folderPath = node.slug
   folderContainer.dataset.folderpath = folderPath
-  
+
   // Check if this is a top-level folder with a custom icon
-  const folderName = folderPath.split('/')[0]
+  const folderName = folderPath.split("/")[0]
   const customIcon = opts.customIcons?.[folderName]
   if (customIcon) {
     // Replace the SVG with an img element
-    const img = document.createElement('img')
+    const img = document.createElement("img")
     img.src = customIcon
     img.alt = folderName + " icon"
     img.className = "custom-folder-icon"
-    folderIcon.replaceWith(img)
+    folderIcon.insertAdjacentElement("afterend", img)
   }
 
   if (opts.folderClickBehavior === "link") {
@@ -301,7 +301,7 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   }
 })
 
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function () {
   // Desktop explorer opens by default, and it stays open when the window is resized
   // to mobile screen size. Applies `no-scroll` to <html> in this edge case.
   const explorer = document.querySelector(".explorer")

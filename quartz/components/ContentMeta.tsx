@@ -37,33 +37,35 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
 
       // Add stage if available
       if (fileData.frontmatter?.stage !== undefined) {
-        const stage = fileData.frontmatter.stage! as string;
+        const stage = fileData.frontmatter.stage! as string
         const stageName = STAGES[stage as keyof typeof STAGES] || "unknown"
         segments.push(
           <span class="stage-header">
-            <img src={`/static/emoji/custom/${stageName}.png`} alt={stageName} class="custom-emoji contentmeta-emoji" /> 
-            {stageName}
-            {" "}
-            {fileData.slug !== "meta/Note-Stages" && (
-              <a href="/meta/Note-Stages" data-slug="Note-Stages" class="stage-info internal alias question-mark" title="Learn about note stages">
+            <img
+              src={`/static/emoji/custom/${stageName}.png`}
+              alt={stageName}
+              class="custom-emoji contentmeta-emoji"
+            />
+            {stageName}{" "}
+            {fileData.slug !== "about/Note-Stages" && (
+              <a
+                href="/about/Note-Stages"
+                data-slug="Note-Stages"
+                class="stage-info internal alias question-mark"
+                title="Learn about note stages"
+              >
                 (?)
               </a>
             )}
             <span> </span>
-          </span>
-          
+          </span>,
         )
       }
-
-
-
 
       // use the initial creation date. this defaults to the `date` frontmatter, and if not found, the git commit history
       const createdDate = fileData.dates?.created || getDate(cfg, fileData)
       if (createdDate) {
-        segments.push(
-          <span>created {createdDate.toISOString().split('T')[0]}</span>
-        )
+        segments.push(<span>created {createdDate.toISOString().split("T")[0]}</span>)
       } else {
         console.log(chalk.yellow(`No created date found for ${fileData.slug}`))
       }
@@ -71,12 +73,8 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
       // Add last-modified date if exists
       if (fileData.dates?.modified) {
         const modifiedDate = fileData.dates.modified
-        segments.push(
-          <span>, edited {modifiedDate.toISOString().split('T')[0]}</span>
-        )
+        segments.push(<span>, edited {modifiedDate.toISOString().split("T")[0]}</span>)
       }
-
-
 
       segments.push(<span> | </span>)
 

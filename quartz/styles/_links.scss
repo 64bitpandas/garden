@@ -1,0 +1,91 @@
+// This file was stolen from the bencuan.me v6 styles
+
+@use "colors";
+@use "fonts";
+@use "mixins";
+
+a:not(.internal),
+.folder-title {
+  text-decoration: underline;
+  color: var(--cat-green);
+  font-weight: normal;
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    color: var(--cat-teal);
+  }
+
+  @include mixins.screen("not-mobile") {
+    position: relative;
+
+    &:hover,
+    &.nav-current {
+      &::before {
+        visibility: visible;
+        transform: scaleX(1);
+      }
+
+      .custom-tooltip {
+        transform: translateY(0px) !important;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.external::after {
+  content: " ↗";
+}
+
+.blue-link {
+  color: var(--cat-lavender) !important;
+  transition: all 0.25s ease-in-out;
+
+  @include mixins.screen("not-mobile") {
+    &::before {
+      background-color: var(--cat-lavender) !important;
+    }
+
+    &:hover {
+      color: var(--cat-pink) !important;
+    }
+  }
+}
+
+:root {
+  --rt-transition-show-delay: 0.05s;
+  --rt-transition-closing-delay: 0.05s;
+}
+
+.custom-tooltip {
+  background-color: white !important;
+  transform: translateY(20px) !important;
+  transition: all ease-in-out 0.25s !important;
+
+  &:hover {
+    transform: translateY(0px) !important;
+  }
+}
+
+a.internal {
+  &:has(> img) {
+    background-color: transparent;
+    border-radius: 0;
+  }
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: var(--cat-text);
+  padding: 0px 3px;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+  animation: ilink-tr 0.25s reverse;
+  background-color: color-mix(in srgb, var(--cat-green) 30%, transparent);
+  font-weight: 500;
+
+  &:hover {
+    color: white !important;
+    background-color: var(--cat-green);
+    font-weight: 550;
+  }
+}

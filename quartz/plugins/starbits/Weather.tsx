@@ -34,10 +34,9 @@ export default function Weather(_props: any) {
           style={{
             width: "30px",
             height: "30px",
-            margin: "0 5px",
+            margin: "0",
             borderRadius: "50%",
             verticalAlign: "middle",
-            backgroundColor: "#99d1db", // catppuccin frappe sky
           }}
         />
         <b className="weather-info"></b>.

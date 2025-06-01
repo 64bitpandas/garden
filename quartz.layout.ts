@@ -2,7 +2,7 @@ import { FullPageLayout, PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
 const explorerCustomIcons = {
-  meta: "/static/emoji/custom/panda.png",
+  about: "/static/emoji/custom/panda.png",
   projects: "/static/icons/projects.png",
   notes: "/static/icons/notes.png",
   // Add more folder-icon mappings as needed
@@ -55,10 +55,12 @@ export const defaultContentPageLayout: PageLayout = {
           grow: true,
         },
         {
-          Component: Component.MobileOnly(Component.Explorer({
-            customIcons: explorerCustomIcons,
-          })),
-        }
+          Component: Component.MobileOnly(
+            Component.Explorer({
+              customIcons: explorerCustomIcons,
+            }),
+          ),
+        },
       ],
     }),
     Component.DesktopOnly(
@@ -104,7 +106,6 @@ export const defaultListPageLayout: PageLayout = {
 export const homepageLayout: FullPageLayout = {
   beforeBody: [],
   left: [
-    Component.Spacer(),
     Component.Flex({
       components: [
         {
@@ -119,6 +120,7 @@ export const homepageLayout: FullPageLayout = {
           ),
         },
       ],
+      direction: "row-reverse",
     }),
     Component.DesktopOnly(
       Component.Explorer({
@@ -126,7 +128,7 @@ export const homepageLayout: FullPageLayout = {
       }),
     ),
   ],
-  right: [Component.DesktopOnly(Component.Spacer())],
+  right: [],
   head: Component.Head(),
   header: [Component.Spacer()],
   afterBody: [],
