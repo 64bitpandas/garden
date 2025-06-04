@@ -11,17 +11,16 @@
 }
 
 .folder-container div > a {
-  color: color-mix(in srgb, var(--cat-green) 75%, black);
-  font-family: "Atkinson Hyperlegible Next", sans-serif;
-  font-size: 1.2em;
-  font-weight: 450;
+  color: var(--dark);
+  font-family: "Charter", sans-serif;
+  font-size: 1.1em;
+  font-weight: 550;
   line-height: 1.5em;
   display: inline-block;
 }
 
 .explorer-content ul li > a {
   font-weight: 500;
-  font-size: 1.1em;
 }
 
 .explorer svg {
@@ -39,8 +38,8 @@ button.desktop-explorer h2 {
 }
 
 .custom-folder-icon {
-  height: 2em;
-  width: 2em;
+  height: 1.7em;
+  width: 1.7em;
   margin: 0;
   margin-right: 0.5em;
   float: left;
