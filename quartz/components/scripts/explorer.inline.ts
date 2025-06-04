@@ -99,11 +99,11 @@ function createFileNode(currentSlug: FullSlug, node: FileTrieNode): HTMLLIElemen
     img.style.marginRight = "0.3em"
     img.style.verticalAlign = "middle"
     a.insertBefore(img, a.firstChild)
-  } else if (node.data?.stage) {
-    const stageIconMap: Record<string, string> = {
-      "1": "/static/emoji/custom/sprout.png",
-      "2": "/static/emoji/custom/blossom.png",
-      "3": "/static/emoji/custom/evergreen.png",
+  } else if (node.data?.stage !== undefined) {
+    const stageIconMap: Record<number, string> = {
+      0: "/static/emoji/custom/sprout.png",
+      1: "/static/emoji/custom/blossom.png",
+      2: "/static/emoji/custom/evergreen.png",
     }
 
     const stageIcon = stageIconMap[node.data.stage]

@@ -22,7 +22,8 @@ async function updateWeatherData() {
 
     img.src = "data:image/png;base64," + data.icon
     img.alt = data.description + " weather icon"
-    weatherSpan.innerHTML = `${data.temperature.toFixed(0)}°F and ${data.description}`
+    const celsius = (((data.temperature - 32) * 5) / 9).toFixed(0)
+    weatherSpan.innerHTML = `${data.temperature.toFixed(0)}°F (${celsius}°C) and ${data.description}`
     ;(container as HTMLElement).style.display = "block"
   } catch (error) {
     console.error("Error fetching Weather data:", error)

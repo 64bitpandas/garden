@@ -1,6 +1,14 @@
 @use "colors";
 @use "fonts";
 
+.explorer-content {
+  padding-right: 0.2em;
+}
+
+.folder-container {
+  margin-bottom: 0.5em;
+}
+
 .folder-container div > a {
   color: color-mix(in srgb, var(--cat-green) 75%, black);
   font-family: "Atkinson Hyperlegible Next", sans-serif;
@@ -30,12 +38,12 @@ button.desktop-explorer h2 {
 }
 
 .custom-folder-icon {
-  height: 1.7em;
-  width: 1.7em;
-  vertical-align: -0.2em;
-  display: inline-block;
+  height: 2em;
+  width: 2em;
   margin: 0;
   margin-right: 0.5em;
+  float: left;
+  transform: translateY(-0.2em);
 }
 
 .explorer-content ul li > a.active {
@@ -49,7 +57,13 @@ button.desktop-explorer h2 {
 .note-stage-icon {
   height: 1.5em !important;
   width: 1.5em !important;
-  display: inline-block;
   margin: 0;
-  margin-left: 0.3em;
+  margin-left: 0.2em;
+  float: left;
+  transform: translateY(-0.125em);
+}
+
+.explorer-content ul li {
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
 }
