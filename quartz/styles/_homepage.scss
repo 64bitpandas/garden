@@ -22,6 +22,10 @@ body:has(.homepage-title) {
     }
   }
 
+  .right.sidebar {
+    display: none !important;
+  }
+
   .homepage-subtitle {
     font-size: 1.25em;
     font-weight: normal;
@@ -96,16 +100,12 @@ body:has(.homepage-title) {
     }
   }
 
-  .right.sidebar {
-    display: none;
-  }
-
   @include mixins.screen("not-mobile") {
     #quartz-body {
       grid-template:
         "grid-sidebar-left grid-header"
         "grid-sidebar-left grid-center"
-        "grid-sidebar-left grid-footer" /320px auto;
+        "grid-sidebar-left grid-footer" / 350px auto;
     }
   }
 

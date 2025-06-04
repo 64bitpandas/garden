@@ -5,6 +5,7 @@
 @use "links";
 @use "scrollbar";
 @use "explorer";
+@use "mixins";
 
 // code block border around title
 figure[data-rehype-pretty-code-figure] {
@@ -168,4 +169,13 @@ figure[data-rehype-pretty-code-figure] {
 .search,
 .search-bar {
   font-family: "Fira Code", sans-serif;
+}
+
+@include mixins.screen("desktop") {
+  .page > #quartz-body {
+    grid-template:
+      "grid-sidebar-left grid-header grid-sidebar-right"
+      "grid-sidebar-left grid-center grid-sidebar-right"
+      "grid-sidebar-left grid-footer grid-sidebar-right" / 350px auto 320px;
+  }
 }

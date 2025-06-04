@@ -151,6 +151,7 @@ declare module "vfile" {
         certainty: number
         featured: string
         customIcon: string
+        private: boolean | string
       }>
   }
 }

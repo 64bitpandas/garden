@@ -6,7 +6,8 @@
 }
 
 .folder-container {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
 }
 
 .folder-container div > a {
@@ -63,7 +64,7 @@ button.desktop-explorer h2 {
   transform: translateY(-0.125em);
 }
 
-.explorer-content ul li {
+.explorer-content .folder-outer ul li {
   line-height: 1.2;
   margin-bottom: 0.4rem;
 }

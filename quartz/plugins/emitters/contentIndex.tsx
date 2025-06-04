@@ -23,6 +23,7 @@ export type ContentDetails = {
   certainty?: number
   featured?: string
   customIcon?: string
+  private?: boolean
 }
 
 interface Options {
@@ -128,6 +129,7 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
             certainty: file.data.frontmatter?.certainty ?? 0,
             featured: file.data.frontmatter?.featured ?? "",
             customIcon: file.data.frontmatter?.customIcon ?? "",
+            private: file.data.frontmatter?.private ?? false,
             content: file.data.text ?? "",
             richContent: opts?.rssFullHtml
               ? escapeHTML(toHtml(tree as Root, { allowDangerousHtml: true }))

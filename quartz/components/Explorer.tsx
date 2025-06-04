@@ -33,6 +33,10 @@ const defaultOptions: Options = {
   sortFn: (a, b) => {
     // Sort order: featured first, then by stage (evergreen > blossom > sprout), then folders, then files alphabetically
 
+    // Stage -1 = last
+    if (a.data?.stage === -1) return 1
+    if (b.data?.stage === -1) return -1
+
     // Featured items come first
     if (a.data?.featured && !b.data?.featured) return -1
     if (!a.data?.featured && b.data?.featured) return 1
@@ -58,7 +62,7 @@ const defaultOptions: Options = {
       sensitivity: "base",
     })
   },
-  filterFn: (node) => node.slugSegment !== "tags",
+  filterFn: (node) => node.slugSegment !== "tags" && !node.data?.private,
   order: ["filter", "map", "sort"],
   customIcons: {}, // Default to empty object
 }
