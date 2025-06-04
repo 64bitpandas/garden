@@ -77,7 +77,12 @@ export const defaultContentPageLayout: PageLayout = {
 
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  beforeBody: [
+    Component.Breadcrumbs(),
+    Component.ArticleTitle(),
+    Component.ContentMeta(),
+    Component.MobileOrTabletOnly(Component.TableOfContents()),
+  ],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
@@ -102,7 +107,7 @@ export const defaultListPageLayout: PageLayout = {
       }),
     ),
   ],
-  right: [],
+  right: [Component.DesktopOnly(Component.TableOfContents())],
 }
 
 // custom layout for the root homepage

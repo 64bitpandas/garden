@@ -19,10 +19,10 @@ const defaultOptions: ContentMetaOptions = {
   showComma: false,
 }
 
-const STAGES = {
-  "0": "sprout",
-  "1": "blossom",
-  "2": "evergreen",
+const STAGES: Record<number, string> = {
+  0: "sprout",
+  1: "blossom",
+  2: "evergreen",
 }
 
 export default ((opts?: Partial<ContentMetaOptions>) => {
@@ -36,9 +36,8 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
       const segments: (string | JSX.Element)[] = []
 
       // Add stage if available
-      if (fileData.frontmatter?.stage !== undefined) {
-        const stage = fileData.frontmatter.stage! as string
-        const stageName = STAGES[stage as keyof typeof STAGES] || "unknown"
+      if (fileData.frontmatter?.stage !== undefined && fileData.frontmatter.stage >= 0) {
+        const stageName = STAGES[fileData.frontmatter.stage] || "unknown"
         segments.push(
           <span class="stage-header">
             <img
