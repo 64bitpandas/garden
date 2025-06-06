@@ -14,7 +14,7 @@ const config: QuartzConfig = {
     enablePopovers: true,
     analytics: {
       provider: "goatcounter",
-      websiteId: "goatcounter",
+      websiteId: "gardencounter",
       host: "bencuan.me",
       scriptSrc: "https://goatcounter.bencuan.me/count.js",
     },
