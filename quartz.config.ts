@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       provider: "goatcounter",
       websiteId: "gardencounter",
       host: "bencuan.me",
-      scriptSrc: "https://goatcounter.bencuan.me/count.js",
+      scriptSrc: "https://gardencounter.bencuan.me/count.js",
     },
     locale: "en-US",
     baseUrl: "garden.bencuan.me",
