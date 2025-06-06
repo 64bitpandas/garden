@@ -138,9 +138,44 @@ async function setupHomepage() {
   void updateWeatherData()
   void updateTurtleNetStatus()
   void updateSpotifyData()
+  void setupIssoComments()
 }
 
-document.addEventListener("nav", setupHomepage)
+// Isso links have an href="#" that causes a page reload when clicked. This disables that behavior.
+function setupIssoComments() {
+  const observer = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      if (mutation.type === "childList") {
+        const issoLinks = document.querySelectorAll(
+          ".isso-reply, .isso-edit, .isso-delete, .isso-upvote, .isso-downvote",
+        )
+        issoLinks.forEach((link) => {
+          if (!link.hasAttribute("data-fixed")) {
+            link.setAttribute("data-fixed", "true")
+            link.addEventListener("click", (e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              // The link's onclick handler will still run
+            })
+          }
+        })
+      }
+    }
+  })
+
+  // Start observing the isso thread for changes
+  const issoThread = document.getElementById("isso-thread")
+  if (issoThread) {
+    observer.observe(issoThread, { childList: true, subtree: true })
+  }
+}
+
+document.addEventListener("nav", () => {
+  setupHomepage()
+  setupVisitors()
+  setupIssoComments()
+})
+
 setupHomepage()
 setupVisitors()
 setInterval(setupHomepage, 600000)
