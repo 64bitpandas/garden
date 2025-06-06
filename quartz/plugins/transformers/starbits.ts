@@ -71,7 +71,7 @@ export const Starbits: QuartzTransformerPlugin<Partial<Options>> = (userOpts) =>
                       // Replace emoji to svg
                       html = replaceAllEmoji(html)
 
-                      console.log(chalk.magenta(`\n[Starbits] Rendered component ${componentName}`))
+                      console.log(chalk.magenta(`[Starbits] Rendered component ${componentName}`))
                       // console.log(html)
                       return {
                         type: "html",
@@ -79,7 +79,7 @@ export const Starbits: QuartzTransformerPlugin<Partial<Options>> = (userOpts) =>
                       }
                     } catch (err) {
                       console.error(
-                        chalk.red(`\n[Starbits] Error rendering component ${componentName}:`),
+                        chalk.red(`[Starbits] Error rendering component ${componentName}:`),
                         err,
                       )
                       return match

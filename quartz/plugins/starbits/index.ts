@@ -8,6 +8,7 @@ import Weather from "./Weather"
 import TurtleNetStatus from "./TurtleNetStatus"
 import HomepageTitle from "./HomepageTitle"
 import HomepageHeader from "./HomepageHeader"
+import Visitors from "./Visitors"
 
 // Create a map of component names to their implementations
 const components: Record<string, ComponentType<any>> = {
@@ -19,6 +20,7 @@ const components: Record<string, ComponentType<any>> = {
   turtlenet_status: TurtleNetStatus,
   homepage_title: HomepageTitle,
   homepage_header: HomepageHeader,
+  visitors: Visitors,
 } as const
 
 // Export the map and individual components

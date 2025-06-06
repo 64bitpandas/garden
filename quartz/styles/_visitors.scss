@@ -1,0 +1,142 @@
+@use "fonts";
+@use "colors";
+@use "mixins";
+
+.including-you {
+  animation: forwards 0.7s ease-in-out 0s 1 highlight;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: var(--cat-green);
+    color: white;
+  }
+  100% {
+    background-color: var(--light);
+    color: var(--darkgray);
+  }
+}
+
+:root {
+  --angle: 45deg;
+  --opacity: 1;
+  --g: 255;
+}
+
+.hidden {
+  display: none;
+}
+
+// inspired by https://web.dev/articles/css-border-animations
+// houdini not supported in firefox, sorry firefox users you get
+// a less pretty button
+.visitors button {
+  letter-spacing: -0.5px;
+  border: solid var(--cat-purple) 2px;
+  border-radius: 10px;
+  padding: 2 4px;
+  margin-left: 5px;
+  cursor: pointer;
+  font-family: "Fira Code", monospace;
+  //   font-size: fonts.$s-1;
+  //   color: colors.$text !important;
+  background-color: colormix(in srgb, var(--cat-lavender) 30%, transparent);
+  text-decoration: none;
+  position: relative;
+  box-sizing: border-box;
+  transition: all 0.25s linear;
+
+  a {
+    // color: colors.$text !important;
+    text-decoration: none;
+  }
+
+  z-index: 0;
+  overflow: hidden;
+
+  background-clip: padding-box, border-box;
+
+  &:hover {
+    animation:
+      rotate 0.5s ease-out infinite,
+      grow 0.75s alternate ease-out infinite,
+      pinker 0.75s alternate ease-out infinite;
+    border: solid transparent 2px;
+  }
+
+  background-image:
+    linear-gradient(
+      to right,
+      rgb(255 var(--g) 255 / var(--opacity)),
+      rgb(255 var(--g) 255 / var(--opacity))
+    ),
+    conic-gradient(
+      from var(--angle),
+      var(--cat-lavender) 0deg 90deg,
+      var(--cat-purple) 90deg 180deg,
+      var(--cat-blue) 180deg 270deg,
+      var(--cat-teal) 270deg 360deg
+    );
+
+  background-origin: border-box;
+}
+
+@keyframes huerotate {
+  0% {
+    filter: hue-rotate(0);
+  }
+
+  50% {
+    filter: hue-rotate(40deg);
+  }
+}
+
+@keyframes grow {
+  from {
+    font-weight: normal;
+    transform: scale(1);
+  }
+
+  to {
+    font-weight: bold;
+    transform: scale(1.02);
+  }
+}
+
+@supports (background: paint(houdini)) {
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  @property --g {
+    syntax: "<number>";
+    initial-value: 255;
+    inherits: false;
+  }
+
+  @keyframes rotate {
+    0% {
+      --angle: 0deg;
+    }
+
+    50% {
+      --angle: 180deg;
+    }
+
+    100% {
+      --angle: 360deg;
+    }
+  }
+
+  @keyframes pinker {
+    from {
+      --g: 255;
+    }
+
+    to {
+      --g: 190;
+    }
+  }
+}

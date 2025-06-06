@@ -92,9 +92,41 @@ async function updateSpotifyData() {
   }
 }
 
-// Update initially and every minute
-updateSpotifyData()
-setInterval(updateSpotifyData, 60000)
+async function setupVisitors() {
+  try {
+    const container = document.querySelector(".visitors")
+    if (!container) {
+      return
+    }
+    const res = await fetch("https://api.bencuan.me/get-claps")
+    const visitors = await res.text()
+
+    // Create elements instead of using complex inline HTML
+    container.innerHTML = `${visitors} people were here before you `
+
+    // Create button element
+    const button = document.createElement("button")
+    button.textContent = "🙋 hey i'm here too!"
+    button.addEventListener("click", updateVisitors)
+
+    // Append button to container
+    container.appendChild(button)
+  } catch (error) {
+    console.error("Error fetching visitors:", error)
+  }
+}
+
+async function updateVisitors() {
+  fetch("https://api.bencuan.me/update-claps", {
+    method: "POST",
+  })
+  const container: Element | null = document.querySelector(".visitors")
+  if (!container) {
+    return
+  }
+  const visitors = parseInt(container!.innerHTML.split(" ")[0])
+  container.innerHTML = `<span class="including-you">${visitors + 1} people were here including you :)</span>`
+}
 
 async function setupHomepage() {
   // Only run this function if we're on the homepage
@@ -110,4 +142,5 @@ async function setupHomepage() {
 
 document.addEventListener("nav", setupHomepage)
 setupHomepage()
+setupVisitors()
 setInterval(setupHomepage, 600000)
