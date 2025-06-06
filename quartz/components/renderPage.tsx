@@ -236,6 +236,7 @@ export function renderPage(
       <Head {...componentData} />
       <body data-slug={slug}>
         <div id="quartz-root" class="page">
+          <img className="top-banner" src="/static/top_banner.png" alt="banner" />
           <Body {...componentData}>
             {LeftComponent}
             <div class="center">

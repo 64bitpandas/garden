@@ -138,7 +138,7 @@ export const homepageLayout: FullPageLayout = {
   ],
   right: [],
   head: Component.Head(),
-  header: [Component.Spacer()],
+  header: [],
   afterBody: [],
   pageBody: Component.Content(),
   footer: Component.Footer(),

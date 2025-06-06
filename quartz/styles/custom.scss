@@ -143,9 +143,7 @@ figure[data-rehype-pretty-code-figure] {
 @media (max-width: 800px) {
   .page > #quartz-body .sidebar.left:has(.explorer) {
     z-index: 100;
-    margin-top: 2em;
     padding: 0;
-    padding-top: 1em;
   }
 }
 
@@ -178,4 +176,8 @@ figure[data-rehype-pretty-code-figure] {
       "grid-sidebar-left grid-center grid-sidebar-right"
       "grid-sidebar-left grid-footer grid-sidebar-right" / 350px auto 320px;
   }
+}
+
+.top-banner {
+  margin: 0;
 }
