@@ -1,5 +1,6 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+import { ignorePatterns } from "./quartz.ignore"
 
 /**
  * Quartz 4 Configuration
@@ -20,14 +21,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "garden.bencuan.me",
-    ignorePatterns: [
-      "private",
-      "about/templates",
-      ".obsidian",
-      "daily",
-      "blog",
-      ...(process.env.GARDEN_DEV ? [] : ["quartz docs"]),
-    ],
+    ignorePatterns: ignorePatterns,
     defaultDateType: "modified",
     theme: {
       fontOrigin: "local",
@@ -68,10 +62,6 @@ const config: QuartzConfig = {
       Plugin.FrontMatter(),
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter", "git", "filesystem"],
-      }),
-      Plugin.GlobalStats({
-        excludeTags: ["private", "draft"],
-        excludeDirs: ["quartz-docs"],
       }),
       Plugin.SyntaxHighlighting({
         theme: {
