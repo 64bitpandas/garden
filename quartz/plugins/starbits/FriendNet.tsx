@@ -6,7 +6,12 @@ interface Friend {
 }
 
 const friends: Friend[] = [
-  { name: "Ben Cuan", url: "https://bencuan.me", banner: "/static/friends/bencuan.gif" },
+  {
+    name: "Ben Cuan",
+    url: "https://bencuan.me",
+    banner: "/static/friends/bencuan.gif",
+    hideInList: true,
+  },
   { name: "Bill Mao", url: "https://billmao.net", banner: "/static/friends/billmao.jpg" },
   {
     name: "Trinity Chung",
@@ -20,12 +25,6 @@ const friends: Friend[] = [
   },
   { name: "Anna Dymchenko", url: "https://anna.dymchenko.com", banner: "/static/friends/adym.png" },
   { name: "Jaysa Garcia", url: "https://jaysa.net", banner: "/static/friends/jaysa.jpg" },
-  {
-    name: "Tiff Sun",
-    url: "https://vimeo.com/943936691",
-    banner: "/static/friends/tiffsun.png",
-    hideInList: true,
-  },
   { name: "Jonathan Zhang", url: "https://rjz.lol", banner: "/static/friends/rjz.png" },
   { name: "Oliver Ni", url: "https://oliver.ni", banner: "/static/friends/oliver.png" },
   { name: "Nikhil Jha", url: "https://nikhiljha.com", banner: "/static/friends/njha.png" },
@@ -35,7 +34,12 @@ const friends: Friend[] = [
     banner: "/static/friends/ocf.png",
     hideInList: true,
   },
-  { name: "TurtleNet", url: "https://tsh.sh", banner: "/static/friends/turtlenet.gif" },
+  {
+    name: "TurtleNet",
+    url: "https://tsh.sh",
+    banner: "/static/friends/turtlenet.gif",
+    hideInList: true,
+  },
   { name: "Ben Plate", url: "https://ben9583.com" },
   { name: "Ethan Wu", url: "https://ethanwu.dev" },
   { name: "Ronit Nath", url: "https://ronitnath.com" },

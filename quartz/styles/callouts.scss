@@ -45,6 +45,7 @@
     --callout-icon: var(--callout-icon-note);
   }
 
+  // summary
   &[data-callout="abstract"] {
     --color: var(--cat-green);
     --border: var(--cat-green);
@@ -52,18 +53,23 @@
     --callout-icon: var(--callout-icon-abstract);
   }
 
-  &[data-callout="info"],
-  &[data-callout="todo"] {
+  // future blog post
+  &[data-callout="info"] {
     --color: var(--cat-blue);
     --border: var(--cat-blue);
     --bg: color-mix(in srgb, var(--cat-blue) 10%, transparent);
     --callout-icon: var(--callout-icon-info);
   }
 
+  // todo
   &[data-callout="todo"] {
+    --color: var(--cat-sky);
+    --border: var(--cat-sky);
+    --bg: color-mix(in srgb, var(--cat-sky) 10%, transparent);
     --callout-icon: var(--callout-icon-todo);
   }
 
+  // request for comment
   &[data-callout="tip"] {
     --color: var(--cat-pink);
     --border: var(--cat-pink);
@@ -85,6 +91,7 @@
     --callout-icon: var(--callout-icon-question);
   }
 
+  // ai generated content warning
   &[data-callout="warning"] {
     --color: var(--cat-yellow);
     --border: var(--cat-yellow);
@@ -109,6 +116,7 @@
     --callout-icon: var(--callout-icon-danger);
   }
 
+  // further reading
   &[data-callout="example"] {
     --color: var(--cat-purple);
     --border: var(--cat-purple);
@@ -116,10 +124,22 @@
     --callout-icon: var(--callout-icon-example);
   }
 
+  // quote
   &[data-callout="quote"] {
-    --color: var(--secondary);
-    --border: var(--lightgray);
+    --color: var(--cat-lavender);
+    --border: var(--cat-lavender);
     --callout-icon: var(--callout-icon-quote);
+    .callout-title {
+      padding-bottom: 0.25em;
+    }
+    .callout-title-inner {
+      padding-left: 0.25em;
+      font-weight: normal;
+
+      p {
+        color: var(--darkgray) !important;
+      }
+    }
   }
 
   &.is-collapsed > .callout-title > .fold-callout-icon {
