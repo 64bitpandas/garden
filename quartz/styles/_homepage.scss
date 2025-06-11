@@ -101,14 +101,14 @@ body:has(.homepage-title) {
     }
   }
 
-  @include mixins.screen("not-mobile") {
-    #quartz-body {
-      grid-template:
-        "grid-sidebar-left grid-header"
-        "grid-sidebar-left grid-center"
-        "grid-sidebar-left grid-footer" / 350px auto;
-    }
-  }
+  // @include mixins.screen("not-mobile") {
+  //   #quartz-body {
+  //     grid-template:
+  //       "grid-sidebar-left grid-header"
+  //       "grid-sidebar-left grid-center"
+  //       "grid-sidebar-left grid-footer" / 350px auto;
+  //   }
+  // }
 
   @include mixins.screen("mobile") {
     .left.sidebar div {

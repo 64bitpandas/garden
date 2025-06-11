@@ -6,6 +6,7 @@
 @use "scrollbar";
 @use "explorer";
 @use "mixins";
+@use "friendnet";
 
 // code block border around title
 figure[data-rehype-pretty-code-figure] {
