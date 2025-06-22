@@ -6,7 +6,7 @@ const explorerCustomIcons = {
   community: "/static/emoji/custom/share_flower.png",
   "game-guides": "/static/emoji/noto-coloremoji-svg/emoji_u1f411.svg",
   homelabbing: "/static/emoji/custom/turtlenet2.png",
-  "internet-trails": "/static/emoji/custom/trailmarker.png",
+  internet: "/static/emoji/custom/trailmarker.png",
   newsletter: "/static/emoji/custom/newsletter.png",
   personal: "/static/emoji/custom/panda.png",
   music: "/static/emoji/custom/musicnote.png",
