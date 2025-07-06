@@ -10,6 +10,8 @@ import HomepageTitle from "./HomepageTitle"
 import HomepageHeader from "./HomepageHeader"
 import Visitors from "./Visitors"
 import FriendNet from "./FriendNet"
+import MiniBanner from "./MiniBanner"
+import SubstackSubscribe from "./SubstackSubscribe"
 
 // Create a map of component names to their implementations
 const components: Record<string, ComponentType<any>> = {
@@ -23,7 +25,9 @@ const components: Record<string, ComponentType<any>> = {
   homepage_header: HomepageHeader,
   visitors: Visitors,
   friend_net: FriendNet,
-} as const
+  minibanner: MiniBanner,
+  substack_subscribe: SubstackSubscribe,
+}
 
 // Export the map and individual components
 export { components }

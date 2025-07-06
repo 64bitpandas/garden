@@ -190,3 +190,33 @@ figure[data-rehype-pretty-code-figure] {
   font-weight: bold;
   color: black;
 }
+
+.mini-banner {
+  margin: 1rem 0;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+}
+
+.substack-subscribe {
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+
+  iframe {
+    max-width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .substack-subscribe iframe {
+    width: 100% !important;
+    height: 300px !important;
+  }
+}
