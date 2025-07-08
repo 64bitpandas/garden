@@ -30,6 +30,7 @@ export const sharedPageComponents: SharedLayout = {
     ),
     Component.MobileOnly(Component.Backlinks()),
     Component.MobileOnly(Component.Graph()),
+    Component.Comments(), // Add the Comments component here
   ],
   footer: Component.Footer({
     links: {
@@ -141,7 +142,7 @@ export const homepageLayout: FullPageLayout = {
   right: [],
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [Component.Comments()],
   pageBody: Component.Content(),
   footer: Component.Footer(),
 }
