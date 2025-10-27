@@ -36,7 +36,7 @@ const friends: Friend[] = [
   },
   {
     name: "TurtleNet",
-    url: "https://tsh.sh",
+    url: "https://bencuan.me/blog/turtlenet",
     banner: "/static/friends/turtlenet.gif",
     hideInList: true,
   },

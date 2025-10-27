@@ -12,6 +12,7 @@ const explorerCustomIcons = {
   music: "/static/emoji/custom/musicnote.png",
   recipes: "/static/emoji/noto-coloremoji-svg/emoji_u1f373.svg",
   wip: "/static/emoji/noto-coloremoji-svg/emoji_u1f3d7.svg",
+  "garden-days": "/static/emoji/custom/sprout.png",
   // Add more folder-icon mappings as needed
 }
 
