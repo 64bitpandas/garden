@@ -12,6 +12,7 @@ import Visitors from "./Visitors"
 import FriendNet from "./FriendNet"
 import MiniBanner from "./MiniBanner"
 import SubstackSubscribe from "./SubstackSubscribe"
+import Bookshelf from "./Bookshelf"
 
 // Create a map of component names to their implementations
 const components: Record<string, ComponentType<any>> = {
@@ -27,6 +28,7 @@ const components: Record<string, ComponentType<any>> = {
   friend_net: FriendNet,
   minibanner: MiniBanner,
   substack_subscribe: SubstackSubscribe,
+  bookshelf: Bookshelf,
 }
 
 // Export the map and individual components

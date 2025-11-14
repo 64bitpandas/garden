@@ -1,0 +1,138 @@
+@use "_colors.scss" as colors;
+@use "_fonts.scss" as fonts;
+@use "_mixins.scss" as mixins;
+
+.bookshelf {
+  margin-top: 2rem;
+}
+
+.sort,
+.filter {
+  font-family: var(--bodyFont);
+  margin-bottom: 1.5rem;
+}
+
+.category-btn,
+.filter-btn {
+  color: var(--darkgray);
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  user-select: none;
+  margin: 4px 6px;
+
+  &:hover {
+    color: var(--secondary);
+  }
+
+  &.category-selected {
+    font-weight: bold;
+    color: var(--secondary);
+  }
+}
+
+.star {
+  font-size: 0.9rem;
+  color: #ea9ab2; // pink
+}
+
+.star2 {
+  color: #f6c177; // orange
+}
+
+.star3 {
+  color: #c4a7e7; // purple
+}
+
+.book-container {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  margin-top: 2.5rem;
+  color: var(--darkgray);
+  font-family: var(--bodyFont);
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    transform: scale(1.01);
+    .book-title {
+      font-weight: 500;
+    }
+  }
+
+  .book-cover-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    height: 12rem;
+
+    img {
+      height: 12rem;
+      width: auto;
+      margin-right: 1rem;
+      display: block;
+    }
+  }
+
+  .book-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-left: 0.5rem;
+    flex: 1;
+  }
+
+  .book-title {
+    font-size: 1.5rem;
+    font-family: var(--headerFont);
+    font-weight: 450;
+    margin: 0;
+  }
+
+  .book-metadata {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .book-author,
+  .book-genres {
+    font-size: 0.9rem;
+    font-family: var(--headerFont);
+    margin: 0;
+  }
+
+  .book-place {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--gray);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.15rem;
+
+    .custom-emoji {
+      height: 0.85em;
+      width: auto;
+      display: inline-block;
+      vertical-align: baseline;
+      margin: 0;
+    }
+  }
+
+  .book-rating {
+    margin: 0.25rem 0;
+
+    .custom-emoji {
+      height: 1.5em;
+      width: auto;
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0;
+    }
+  }
+
+  .book-description {
+    font-size: 0.9rem;
+    margin: 0.5rem 0 0 0;
+  }
+}
