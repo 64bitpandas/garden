@@ -12,7 +12,7 @@ const friends: Friend[] = [
     banner: "/static/friends/bencuan.gif",
     hideInList: true,
   },
-  { name: "Bill Mao", url: "https://billmao.net", banner: "/static/friends/billmao.jpg" },
+  { name: "Brooke Mao", url: "https://brookemao.ca", banner: "/static/friends/brooke.png" },
   {
     name: "Trinity Chung",
     url: "https://trinityjchung.com",
@@ -56,6 +56,7 @@ const friends: Friend[] = [
   { name: "Ishaan Dham", url: "https://ishaandham.com/" },
   { name: "Cameron Custer", url: "https://camcuster.me" },
   { name: "Aditya Balasubramanian", url: "https://aditbala.com" },
+  { name: "Chase Peterson", url: "https://chasepeterson.dev" },
 ]
 
 export default function FriendNet(_props: any) {

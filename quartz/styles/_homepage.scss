@@ -142,3 +142,9 @@ body:has(.homepage-title) {
   margin: 5px;
   border-radius: 15px;
 }
+
+// Fix for Safari putting these on a different line from the bullet point >:(
+.weather-container,
+.turtlenet-status {
+  display: inline-flex;
+}

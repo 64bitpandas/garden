@@ -3,7 +3,7 @@ const Visitors = () => {
   // TODO this is probably unnecessary to keep around as a starbit
   return (
     <>
-      <div className="visitors" />
+      <span className="visitors" />
     </>
   )
 }
