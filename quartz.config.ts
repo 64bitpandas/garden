@@ -33,7 +33,7 @@ const config: QuartzConfig = {
       },
       colors: {
         lightMode: {
-          light: "#faf4ed", // background color
+          light: "#f4eee8", // background color
           lightgray: "#dfdad9", // search bar background, <hr/> default color, explorer alignment rules, graph edges, code background
           gray: "#9893a5", // subheading, graph forward links
           darkgray: "#575279", // default text color and icons
