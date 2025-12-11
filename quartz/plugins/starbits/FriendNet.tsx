@@ -28,18 +28,6 @@ const friends: Friend[] = [
   { name: "Jonathan Zhang", url: "https://rjz.lol", banner: "/static/friends/rjz.png" },
   { name: "Oliver Ni", url: "https://oliver.ni", banner: "/static/friends/oliver.png" },
   { name: "Nikhil Jha", url: "https://nikhiljha.com", banner: "/static/friends/njha.png" },
-  {
-    name: "OCF",
-    url: "https://www.ocf.berkeley.edu",
-    banner: "/static/friends/ocf.png",
-    hideInList: true,
-  },
-  {
-    name: "TurtleNet",
-    url: "https://bencuan.me/blog/turtlenet",
-    banner: "/static/friends/turtlenet.gif",
-    hideInList: true,
-  },
   { name: "Ben Plate", url: "https://ben9583.com" },
   { name: "Ethan Wu", url: "https://ethanwu.dev" },
   { name: "Ronit Nath", url: "https://ronitnath.com" },
@@ -57,6 +45,20 @@ const friends: Friend[] = [
   { name: "Cameron Custer", url: "https://camcuster.me" },
   { name: "Aditya Balasubramanian", url: "https://aditbala.com" },
   { name: "Chase Peterson", url: "https://chasepeterson.dev" },
+  { name: "Joe Wang", url: "https://joewang.me", banner: "/static/friends/storce.png" },
+  { name: "Albert Ye", url: "https://aly.sh", banner: "/static/friends/albert.png" },
+  {
+    name: "OCF",
+    url: "https://www.ocf.berkeley.edu",
+    banner: "/static/friends/ocf.png",
+    hideInList: true,
+  },
+  {
+    name: "TurtleNet",
+    url: "https://bencuan.me/blog/turtlenet",
+    banner: "/static/friends/turtlenet.gif",
+    hideInList: true,
+  },
 ]
 
 export default function FriendNet(_props: any) {
