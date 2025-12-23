@@ -14,6 +14,7 @@ const explorerCustomIcons = {
   wip: "/static/emoji/noto-coloremoji-svg/emoji_u1f3d7.svg",
   "garden-days": "/static/emoji/custom/sprout.png",
   guides: "/static/emoji/custom/tourbooth.png",
+  "ml-systems": "/static/emoji/custom/penguin1.png",
   // Add more folder-icon mappings as needed
 }
 
