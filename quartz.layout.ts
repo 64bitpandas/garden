@@ -55,7 +55,9 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOrTabletOnly(Component.TableOfContents()),
   ],
   left: [
+    Component.MobileOnly(Component.HomeLink()),
     Component.PageTitle(),
+    Component.DesktopOnly(Component.HomeLink()),
     Component.MobileOnly(Component.Spacer()),
     Component.Flex({
       components: [
@@ -91,6 +93,7 @@ export const defaultListPageLayout: PageLayout = {
   ],
   left: [
     Component.PageTitle(),
+    Component.DesktopOnly(Component.HomeLink()),
     Component.MobileOnly(Component.Spacer()),
     Component.Flex({
       components: [
@@ -136,6 +139,7 @@ export const homepageLayout: FullPageLayout = {
       ],
       direction: "row-reverse",
     }),
+    Component.DesktopOnly(Component.HomeLink()),
     Component.DesktopOnly(
       Component.Explorer({
         customIcons: explorerCustomIcons,

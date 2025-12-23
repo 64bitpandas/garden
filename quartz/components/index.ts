@@ -25,6 +25,7 @@ import Comments from "./Comments"
 import Flex from "./Flex"
 import Grid from "./Grid"
 import ConditionalRender from "./ConditionalRender"
+import HomeLink from "./HomeLink"
 
 export {
   ArticleTitle,
@@ -54,4 +55,5 @@ export {
   Flex,
   Grid,
   ConditionalRender,
+  HomeLink,
 }
