@@ -143,6 +143,7 @@ async function startWatching(
     persistent: true,
     cwd: argv.directory,
     ignoreInitial: true,
+    ignored: ["**/node_modules/**", "**/.git/**", ...cfg.configuration.ignorePatterns],
   })
 
   const changes: ChangeEvent[] = []
