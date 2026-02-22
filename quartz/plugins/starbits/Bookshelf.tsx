@@ -39,7 +39,7 @@ export default function Bookshelf(_props: any) {
   const renderBook = (book: Book) => (
     <div key={book.title} className="book-container">
       <div className="book-cover-wrapper">
-        <img src={`https://bencuan.me/img/books/${book.image}`} alt={book.title} />
+        <img src={`/static/books/${book.image}`} alt={book.title} />
       </div>
       <div className="book-right">
         <div className="book-title">{book.title}</div>
