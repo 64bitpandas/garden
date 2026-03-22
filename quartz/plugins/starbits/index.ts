@@ -13,6 +13,7 @@ import FriendNet from "./FriendNet"
 import MiniBanner from "./MiniBanner"
 import SubstackSubscribe from "./SubstackSubscribe"
 import Bookshelf from "./Bookshelf"
+import RunningGraph from "./RunningGraph"
 
 // Create a map of component names to their implementations
 const components: Record<string, ComponentType<any>> = {
@@ -29,6 +30,7 @@ const components: Record<string, ComponentType<any>> = {
   minibanner: MiniBanner,
   substack_subscribe: SubstackSubscribe,
   bookshelf: Bookshelf,
+  running_graph: RunningGraph,
 }
 
 // Export the map and individual components

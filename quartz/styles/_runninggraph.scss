@@ -1,0 +1,37 @@
+@use "_colors.scss" as colors;
+
+.running-graph-container {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: transparent;
+  border-radius: 8px;
+
+  canvas {
+    width: 100% !important;
+    max-height: 400px;
+  }
+}
+
+.running-graph-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  font-family: var(--bodyFont);
+  font-size: 1.1rem;
+  font-weight: 500;
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--dark);
+  }
+
+  .legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+}

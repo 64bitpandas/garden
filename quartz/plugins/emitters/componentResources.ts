@@ -7,6 +7,8 @@ import spaRouterScript from "../../components/scripts/spa.inline"
 import homepageScript from "../../components/scripts/homepage.inline"
 // @ts-ignore
 import popoverScript from "../../components/scripts/popover.inline"
+// @ts-ignore
+import runningGraphScript from "../../components/scripts/runninggraph.inline"
 import styles from "../../styles/custom.scss"
 import popoverStyle from "../../components/styles/popover.scss"
 import { BuildCtx } from "../../util/ctx"
@@ -223,6 +225,7 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
   }
 
   componentResources.afterDOMLoaded.push(homepageScript)
+  componentResources.afterDOMLoaded.push(runningGraphScript)
 }
 
 // This emitter should not update the `resources` parameter. If it does, partial
