@@ -28,6 +28,14 @@ const RUNNING_LOG: RunEntry[] = [
   { date: "2026-03-29", totalTime: "76:16", distance: 7.06, category: "DISH" },
   { date: "2026-04-04", totalTime: "65:29", distance: 7.19, category: "DISH" },
   { date: "2026-04-17", totalTime: "61:56", distance: 7.09, category: "DISH" },
+  { date: "2026-05-03", totalTime: "91:39", distance: 10.02, category: "DISH" },
+  {
+    date: "2026-05-09",
+    totalTime: "104:16",
+    distance: 13.1,
+    category: "RACE",
+    name: "Yosemite Half Marathon",
+  },
 ]
 
 // Helper to convert MM:SS to total seconds
