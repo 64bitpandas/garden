@@ -32,7 +32,7 @@ const RUNNING_LOG: RunEntry[] = [
   {
     date: "2026-05-09",
     totalTime: "104:16",
-    distance: 13.1,
+    distance: 13.1094,
     category: "RACE",
     name: "Yosemite Half Marathon",
   },
@@ -78,7 +78,6 @@ export default function RunningGraph(_props: any) {
       <canvas
         id="running-graph-canvas"
         data-running-log={JSON.stringify(chartData)}
-        style={{ width: "100%", maxHeight: "400px" }}
       ></canvas>
       <div className="running-graph-legend">
         <span className="legend-item">

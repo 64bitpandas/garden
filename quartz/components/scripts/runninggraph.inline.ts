@@ -102,13 +102,13 @@ async function setupRunningGraph() {
     },
     options: {
       responsive: true,
-      maintainAspectRatio: true,
+      maintainAspectRatio: false,
       layout: {
         padding: {
-          left: 20,
-          right: 20,
-          top: 40,
-          bottom: 10,
+          left: 0,
+          right: 0,
+          top: 30,
+          bottom: 0,
         },
       },
       scales: {
@@ -214,7 +214,24 @@ async function setupRunningGraph() {
           const ctx = chart.ctx
           chart.data.datasets.forEach((dataset: any, datasetIndex: number) => {
             const meta = chart.getDatasetMeta(datasetIndex)
+
+            // For non-RACE categories, only label the personal best (lowest y / fastest pace)
+            let allowedIndices: Set<number> | null = null
+            if (dataset.label !== "RACE") {
+              let bestIndex = -1
+              let bestY = Infinity
+              dataset.data.forEach((d: any, i: number) => {
+                if (typeof d.y === "number" && d.y < bestY) {
+                  bestY = d.y
+                  bestIndex = i
+                }
+              })
+              allowedIndices = new Set(bestIndex >= 0 ? [bestIndex] : [])
+            }
+
             meta.data.forEach((point: any, index: number) => {
+              if (allowedIndices && !allowedIndices.has(index)) return
+
               const data = dataset.data[index]
               const x = point.x
               const y = point.y
@@ -225,7 +242,7 @@ async function setupRunningGraph() {
               ctx.fillStyle = "#1a1a1a"
 
               // Format label
-              let label = `${data.totalTime} (${data.paceFormatted})`
+              let label = `${data.totalTime} (${data.paceFormatted}/mi)`
               if (data.name) {
                 label = `${data.name}\n${label}`
               }
