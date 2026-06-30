@@ -5,7 +5,7 @@ type ChartDataPoint = {
   timeOfDay?: string
   totalTime: string
   distance: number
-  category: "DISH" | "RACE"
+  category: "DISH" | "RACE" | "FUN"
   name?: string
   paceSeconds: number
   paceFormatted: string
@@ -44,6 +44,7 @@ async function setupRunningGraph() {
   // Separate data by category
   const dishData = data.filter((d) => d.category === "DISH")
   const raceData = data.filter((d) => d.category === "RACE")
+  const funData = data.filter((d) => d.category === "FUN")
 
   // Convert pace from seconds to minutes for display (e.g., 600 seconds = 10 minutes)
   const paceToMinutes = (paceSeconds: number) => paceSeconds / 60
@@ -94,6 +95,24 @@ async function setupRunningGraph() {
           backgroundColor: "#FA969D",
           pointBackgroundColor: "#FA969D",
           pointBorderColor: "#FA969D",
+          pointRadius: 8,
+          pointHoverRadius: 10,
+          showLine: false,
+        },
+        {
+          label: "FUN",
+          data: funData.map((d) => ({
+            x: d.date,
+            y: paceToMinutes(d.paceSeconds),
+            totalTime: d.totalTime,
+            paceFormatted: d.paceFormatted,
+            name: d.name,
+            distance: d.distance,
+          })),
+          borderColor: "#8AB6D6",
+          backgroundColor: "#8AB6D6",
+          pointBackgroundColor: "#8AB6D6",
+          pointBorderColor: "#8AB6D6",
           pointRadius: 8,
           pointHoverRadius: 10,
           showLine: false,
@@ -217,7 +236,7 @@ async function setupRunningGraph() {
 
             // For non-RACE categories, only label the personal best (lowest y / fastest pace)
             let allowedIndices: Set<number> | null = null
-            if (dataset.label !== "RACE") {
+            if (dataset.label !== "RACE" && dataset.label !== "FUN") {
               let bestIndex = -1
               let bestY = Infinity
               dataset.data.forEach((d: any, i: number) => {

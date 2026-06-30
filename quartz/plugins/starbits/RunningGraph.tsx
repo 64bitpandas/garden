@@ -1,7 +1,7 @@
 // Running graph Starbit - renders a chart of running stats
 // The chart is initialized client-side via quartz/components/scripts/runninggraph.inline.ts
 
-type Category = "DISH" | "RACE"
+type Category = "DISH" | "RACE" | "FUN"
 
 type RunEntry = {
   date: string // YYYY-MM-DD
@@ -29,12 +29,20 @@ const RUNNING_LOG: RunEntry[] = [
   { date: "2026-04-04", totalTime: "65:29", distance: 7.19, category: "DISH" },
   { date: "2026-04-17", totalTime: "61:56", distance: 7.09, category: "DISH" },
   { date: "2026-05-03", totalTime: "91:39", distance: 10.02, category: "DISH" },
+  { date: "2026-05-25", totalTime: "124:56", distance: 12.71, category: "DISH" },
   {
     date: "2026-05-09",
     totalTime: "104:16",
     distance: 13.1094,
     category: "RACE",
     name: "Yosemite Half Marathon",
+  },
+  {
+    date: "2026-05-30",
+    totalTime: "159:20",
+    distance: 15.15,
+    category: "FUN",
+    name: "SF Crosstown Trail",
   },
 ]
 
@@ -87,6 +95,10 @@ export default function RunningGraph(_props: any) {
         <span className="legend-item">
           <span className="legend-color" style={{ backgroundColor: "#FA969D" }}></span>
           RACE
+        </span>
+        <span className="legend-item">
+          <span className="legend-color" style={{ backgroundColor: "#8AB6D6" }}></span>
+          FUN
         </span>
       </div>
     </div>
