@@ -10,6 +10,7 @@ const explorerCustomIcons = {
   newsletter: "/static/emoji/custom/newsletter.png",
   personal: "/static/emoji/custom/panda.png",
   music: "/static/emoji/custom/musicnote.png",
+  reading: "/static/emoji/custom/notes.png",
   recipes: "/static/emoji/noto-coloremoji-svg/emoji_u1f373.svg",
   wip: "/static/emoji/noto-coloremoji-svg/emoji_u1f3d7.svg",
   "garden-days": "/static/emoji/custom/sprout.png",
