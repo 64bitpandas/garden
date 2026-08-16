@@ -28,8 +28,19 @@ jobs:
           node-version: 22
       - name: Install Dependencies
         run: npm ci
+      - name: Run tests
+        run: npm test
+      - name: Verify private content is excluded
+        run: npm run test:privacy
       - name: Build Quartz
         run: npx quartz build
+      - name: Reject private build output
+        run: |
+          test -d public
+          if { [ -d public/private ] && find public/private -type f -print -quit | grep -q .; } || [ -f public/private.html ]; then
+            echo "::error::Private content was found in the generated site"
+            exit 1
+          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

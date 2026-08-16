@@ -1,5 +1,5 @@
 export const ignorePatterns = [
-  "private",
+  "private/**",
   "about/templates",
   "newsletter/drafts",
   ".obsidian",
